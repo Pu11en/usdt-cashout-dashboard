@@ -300,6 +300,49 @@ Cash in hand
     st.markdown("---")
     st.warning("One swap = one taxable event. If you swap USDT to BTC to get a loan: pay the small tax on that one sale. Done. Everything after = no tax.")
 
+    st.markdown("---")
+    st.subheader("Bank Debit Card Route — Spend Normally After the Loan")
+
+    st.markdown("""
+**Once the loan money is in your bank account — you are just a normal person with a high balance.**
+
+```
+USDT
+  | Swap to BTC (one tax event)
+BTC as collateral at Ledn / Unchained
+  |
+They wire to your bank
+  |
+Bank sees: personal loan from Ledn Capital
+  |
+Request high-limit debit card from YOUR bank
+  |
+Spend anywhere. ATM. Normal bank card.
+```
+
+**Why this is the cleanest route:**
+- The bank sees a personal loan — nothing crypto-related
+- High balance = expected to have a high-limit debit card
+- Daily spending of $10K-$50K is normal for this balance
+- No crypto card. No no-KYC complications. Just a normal bank debit card.
+
+**vs crypto cards:**
+
+| | Bank Debit Card | Crypto Card (SolCard, Bleap) |
+|---|---|---|
+| Daily limit | $10K-$50K+ | $5K-$100K |
+| ATM limit | $1K-$5K/day | Limited or none |
+| Bank knows it is crypto? | No | Sometimes |
+| Can they freeze it? | Only if suspicious | Yes — any time |
+| Normal to have high limits? | Yes | They question it |
+
+**Best banks for this:**
+- **Cross River Bank** — already processes crypto company wires daily. Will not blink.
+- **FV Bank (Puerto Rico)** — deposit USDC directly, or receive wire from Ledn. Crypto-aware.
+- **Private bank (JP Morgan, Citi, Goldman)** — used to high balances. High-limit cards standard.
+- **Your existing bank** — fewer questions if they know you.
+""")
+
 # ─── PAGE 4: GOODS ARBITRAGE ─────────────────────────────────────────────────
 def page_goods():
     st.title("💵 Goods Arbitrage — Buy With USDT, Sell for Cash")
@@ -504,17 +547,18 @@ def page_cards():
     st.subheader("All Cards Compared")
 
     render(pd.DataFrame({
-        "Card": ["Gnosis Pay", "Bleap Mastercard", "RedotPay", "COCA Card", "Binance Card"],
-        "Custody": ["YOU (self-custody)", "Bleap (custodial)", "RedotPay (custodial)", "COCA (custodial)", "Binance (custodial)"],
-        "Network": ["Visa", "Mastercard", "Visa", "Mastercard", "Visa"],
-        "Cashback": ["Up to 5% (GNO tokens)", "2% (USDC)", "3%", "Up to 5%", "Up to 5%"],
-        "FX Fee": ["0.5% + 1% weekend", "0%", "0%", "0%", "0%"],
-        "Monthly Fee": ["Free — €16.99 (Metal)", "Free", "Free", "Free", "Free"],
-        "ATM Limit": ["Tiered by plan", "$400/mo free", "$100K/day", "Tiered", "Tiered"],
-        "Spending Limit": ["$1M+/day (Metal)", "High", "$1M/day", "High", "Medium"],
-        "KYC": ["No (your Safe)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
-        "Countries": ["EU + LatAm (no US)", "Global", "Global", "Global", "Limited"],
-        "Best For": ["Privacy first", "Best overall fees", "High limits", "Multi-chain", "Binance users"],
+        "Card": ["Gnosis Pay", "SolCard (Virtual)", "Bleap Mastercard", "RedotPay", "COCA Card", "Binance Card"],
+        "Custody": ["YOU (self-custody)", "SolCard platform", "Bleap (custodial)", "RedotPay (custodial)", "COCA (custodial)", "Binance (custodial)"],
+        "Network": ["Visa", "Visa", "Mastercard", "Visa", "Mastercard", "Visa"],
+        "Cashback": ["Up to 5% (GNO tokens)", "None", "2% (USDC)", "3%", "Up to 5%", "Up to 5%"],
+        "FX Fee": ["0.5% + 1% weekend", "0%", "0%", "0%", "0%", "0%"],
+        "Monthly Fee": ["Free — €16.99 (Metal)", "Free", "Free", "Free", "Free", "Free"],
+        "Top-Up Fee": ["None", "5% (virtual tier)", "None", "None", "None", "None"],
+        "ATM Limit": ["Tiered by plan", "No ATM", "$400/mo free", "$100K/day", "Tiered", "Tiered"],
+        "Spending Limit": ["$1M+/day (Metal)", "$5K/month", "High", "$1M/day", "High", "Medium"],
+        "KYC": ["No (your Safe)", "No (virtual tier)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
+        "Countries": ["EU + LatAm (no US)", "Global", "Global", "Global", "Global", "Limited"],
+        "Best For": ["Privacy first", "No ID, no bank", "Best overall fees", "High limits", "Multi-chain", "Binance users"],
     }))
 
     st.markdown("---")
@@ -550,6 +594,42 @@ Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, F
         "Cashback": ["Up to 4%", "Up to 4%", "Up to 5% (with GNO)"],
         "Notes": ["Free to start", "More free ATM", "Best limits + most cashback"],
     }))
+
+    st.markdown("---")
+    st.subheader("SolCard — No KYC, No Bank, No ID")
+
+    st.markdown("""
+**What it is:** Visa virtual card funded from your self-custody wallet. No ID verification on the virtual tier. No bank account needed. Use any name and address.
+
+**The numbers:**
+- KYC: None on virtual card
+- Top-up fee: 5% on virtual card, 0% on Platinum
+- Spending limit: $5,000/month (virtual), $100K/month (Platinum)
+- Apple Pay / Google Pay: Yes (all tiers)
+- ATM: No
+- Physical card: Only on Platinum tier (requires KYC)
+- Fund with: SOL, USDT, USDC from self-custody wallet
+- Website: solcard.cc
+
+**How it works:**
+```
+Your self-custody wallet (Trust Wallet, Phantom)
+        |
+Fund SolCard with SOL/USDT/USDC
+        |
+Virtual card issued instantly — use any name/address
+        |
+Add to Apple Pay / Google Pay
+        |
+Spend anywhere Visa is accepted
+```
+
+**What Reddit users say:** "No ID verification needed. You can pick a random name and address. Just make sure the zip code matches the city."
+
+**The catch:** Solana-based. 5% fee on virtual tier. $5K/month limit. No ATM. Some merchants blocked.
+
+**Why it matters:** This is the closest thing to a truly no-ID crypto card in 2026.
+""")
 
     st.markdown("---")
     st.subheader("Bleap Mastercard — Best Overall Fees")
