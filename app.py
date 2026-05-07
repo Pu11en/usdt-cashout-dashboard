@@ -33,8 +33,7 @@ def page_home():
 
     render(pd.DataFrame({
         "Method": [
-            "🤝 P2P — Cash people want USDT",
-            "👤 Local meet — Cash in hand",
+            "🤝 P2P — Cash people want USDT (in person or platform)",
             "💵 Goods arbitrage — Buy with USDT, sell for cash",
             "🎁 Gift cards — Buy with USDT, sell for cash",
             "✈️ Travel — Buy bookings, resell",
@@ -43,8 +42,7 @@ def page_home():
             "💱 DEX → off-ramp — Swap, wire, cash",
         ],
         "Output": [
-            "Cash via platform escrow",
-            "Cash in hand",
+            "Cash via escrow or in person",
             "Cash from reselling",
             "Cash from reselling",
             "Cash from reselling",
@@ -55,7 +53,6 @@ def page_home():
         "ID Needed": [
             "None",
             "None",
-            "None",
             "Email only",
             "No (<$3K)",
             "Yes (loan company)",
@@ -64,7 +61,6 @@ def page_home():
         ],
         "Best For": [
             "Main business — scale up",
-            "Most private",
             "Large items",
             "Quick turnaround",
             "People who need travel",
@@ -794,7 +790,7 @@ def page_privacy():
     st.markdown("---")
 
     render(pd.DataFrame({
-        "Rank": ["1", "2", "3", "4", "5", "6", "7", "8"],
+        "Rank": ["1", "2", "3", "4", "5", "6", "7"],
         "Method": ["Local meet (in person)", "Goods arbitrage", "Gnosis Safe + Pay", "P2P platform", "Gift cards to resell", "Travel to resell", "DEX to off-ramp", "Loan (debt)"],
         "ID Needed": ["None", "None", "None", "None", "Email only", "No (<$3K)", "None", "Yes (loan company)"],
         "Scale": ["Small", "Large", "Large", "Unlimited", "Large", "Medium", "Large", "Large"],
@@ -1102,7 +1098,7 @@ def page_shortcuts():
         st.markdown("**If you need cash RIGHT NOW — same day:**")
 
         render(pd.DataFrame({
-            "How": ["Local meet", "Gift cards", "Gnosis Pay ATM"],
+            "How": ["P2P (in person)", "Gift cards", "Gnosis Pay ATM"],
             "What to Do": ["Telegram + local meet. Cash in hand.", "CoinGate: buy Steam cards. Sell for 85 cents on dollar.", "Gnosis Safe: ATM withdrawal (EU/LatAm)."],
             "Amount": ["Any size", "Up to $50K/day", "Per ATM limit"],
             "ID Needed": ["None", "Email only", "None"],
@@ -1173,7 +1169,7 @@ def page_shortcuts():
 
     render(pd.DataFrame({
         "Rank": ["1", "2", "3", "4"],
-        "Method": ["Local meet (in person)", "Gift cards to CoinGate to resell", "Gnosis Safe + Pay (ATM)", "Aave to SimpleSwap (wire)"],
+        "Method": ["P2P (in person or platform)", "Gift cards via CoinGate", "Gnosis Safe + Pay (ATM)", "Aave to SimpleSwap (wire)"],
         "Speed": ["Instant", "Same day", "Instant", "1-3 days"],
         "ID Needed": ["None", "Email only", "None", "None"],
         "Bank Needed": ["No", "No", "No", "No"],
@@ -1187,7 +1183,7 @@ def page_shortcuts():
     st.markdown("""
     **Start here:**
     1. Download Gnosis Safe + CoinGate + Telegram
-    2. Do one local meet this week
+    2. Do one P2P trade this week
     3. Sell a gift card today
     4. Scale from there
     """)
