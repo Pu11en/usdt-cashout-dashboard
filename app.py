@@ -77,6 +77,17 @@ def page_home():
     st.markdown("---")
     st.subheader("The Three Angles")
 
+    st.markdown("---")
+    st.subheader("The Reality Check")
+
+    st.warning("""
+**No wallet-to-card shortcut exists in 2026.** You cannot go USDT wallet → debit card directly without KYC. Every card issuer (Visa, Mastercard) requires identity verification by law. SolCard was the last no-KYC option and they removed it April 2026.
+
+**The only path to a bank debit card:** USDT → swap to BTC → collateral at Ledn/Unchained → wire to bank → bank debit card.
+
+**OR use the cash methods:** P2P, gift cards, goods arbitrage, Gnosis Safe spending.
+""")
+
     c1, c2, c3 = st.columns(3)
     with c1:
         st.markdown("""
@@ -689,7 +700,11 @@ KYC is now required for all new cards. Existing no-KYC cards continue to work te
         "Best Card": ["Gnosis Pay", "Bleap Mastercard", "RedotPay", "Binance Card", "RedotPay (US Visa BIN)"],
     }))
 
-    st.warning("All custodial cards (Bleap, RedotPay, COCA) require government ID and selfie. Gnosis Pay is the only one that does NOT require ID — because your Safe IS the account.")
+    st.error("""
+**No crypto debit card exists without KYC in 2026.** SolCard removed its no-KYC feature April 2026. All remaining cards (Bleap, RedotPay, COCA, Binance) require government ID + selfie. Gnosis Pay does not require ID because your Safe IS the account — but it is only available in EU + Latin America.
+
+**The path to a bank debit card with no crypto label:** USDT → swap to BTC → collateral loan → wire to bank → request bank debit card from your bank.
+""")
 
 # ─── PAGE 6: DEX + OFF-RAMP ─────────────────────────────────────────────────
 def page_dex():
@@ -885,12 +900,12 @@ def page_fraud():
     st.markdown("---")
 
     cases = [
-        ("Crypto Dispensers — Nov 2025", "$10M alleged money laundering", "Ran cash-to-BTC ATMs. Banks flagged cash deposits. FBI traced through ATMs.", "Cash deposits trigger SARs. Every ATM transaction is on-chain."),
-        ("Paxful — Dec 2025", "$7.5M fine + platform shut down", "No MTL licenses. No KYC/AML. Platform used by scammers.", "Get licensed before doing serious volume."),
-        ("Samourai Wallet — 2025", "CEO: 60 months prison", "Privacy mixing wallet. Explicit money laundering intent.", "Privacy tools treated as intent to hide money."),
-        ("Ronald Spektor — Dec 2025", "$16M fraud, Brooklyn DA", "Impersonated Coinbase support. Got victims to send crypto.", "Scamming = prison."),
-        ("Tether Freezes — 2025-2026", "$700M+ frozen", "Tether froze USDT connected to fraud. DOJ request.", "Tether can freeze your USDT instantly."),
-        ("Operation Atlantic — May 2026", "276 arrests, $701M seized", "US + China + Canada coordinated crackdown.", "Law enforcement is highly coordinated."),
+        ("Crypto Dispensers — Nov 2025", "$10M+ alleged money laundering", "Ran cash-to-BTC ATMs. Banks flagged cash deposits. FBI traced through ATMs. Company exploring $100M sale during prosecution.", "Cash deposits trigger SARs. Every ATM transaction is on-chain."),
+        ("Paxful — Nov 2025", "$3.5M-4M fine + shut down", "No MTL licenses. No KYC/AML. Platform used by scammers. Shut down Nov 1 2025.", "Get licensed before doing serious volume."),
+        ("Samourai Wallet — 2025", "Co-founders: 48 months prison", "Privacy mixing wallet. Explicit money laundering intent. Both co-founders sentenced.", "Privacy tools treated as intent to hide money."),
+        ("Ronald Spektor — Dec 2025", "$16M fraud, Brooklyn DA", "Impersonated Coinbase support. 31 counts including grand larceny. 23 years old.", "Scamming = prison."),
+        ("Tether Freezes — 2025-2026", "$344M+ frozen (documented)", "Tether froze USDT connected to fraud. DOJ froze $344M in one action (2026).", "Tether can freeze your USDT instantly on DOJ request."),
+        ("Operation Atlantic — May 2026", "276 arrests, millions seized", "US + China + Dubai coordinated crackdown on pig-butchering scam centers.", "International law enforcement is highly coordinated."),
     ]
 
     for name, amount, what, lesson in cases:
@@ -954,6 +969,17 @@ def page_apps():
 
     st.markdown("---")
     st.subheader("The Daily Stack")
+
+    st.markdown("---")
+    st.subheader("The Reality Check")
+
+    st.warning("""
+**No wallet-to-card shortcut exists in 2026.** You cannot go USDT wallet → debit card directly without KYC. Every card issuer (Visa, Mastercard) requires identity verification by law. SolCard was the last no-KYC option and they removed it April 2026.
+
+**The only path to a bank debit card:** USDT → swap to BTC → collateral at Ledn/Unchained → wire to bank → bank debit card.
+
+**OR use the cash methods:** P2P, gift cards, goods arbitrage, Gnosis Safe spending.
+""")
 
     c1, c2, c3 = st.columns(3)
     with c1:
