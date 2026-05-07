@@ -479,15 +479,20 @@ def page_safe():
     st.markdown("---")
 
     st.success("""
-**The key:** Your USDT never leaves your wallet. No company holds your money. No one can freeze it.
+**What Gnosis Safe IS:**
+- A self-custody wallet. You hold your USDT. No company can freeze it. Works globally. No ID to create.
 
-With Gnosis Safe + Gnosis Pay: you get a Visa debit card linked directly to YOUR wallet — not a company wallet.
-Spend anywhere Visa is accepted. Withdraw at ATMs.
+**What Gnosis Pay (the card) REQUIRES:**
+- EU or Latin American residency
+- A bank account in a supported country (card settles in EUR)
+- Your country is verified during card issuance
+- NOT available in the US
 
-**Important:** Gnosis Pay card requires residency in an EU or Latin American country. NOT available in the US.
-No government ID upload required for the wallet itself — but card issuance requires a supported country address.
+**What it does NOT require:**
+- No passport upload. No selfie. No government ID photo.
+- But your bank account + residency effectively identify you.
 
-**No 1099 from the card. No company controls your funds. True self-custody.**
+**No 1099 from the card. No company controls your funds. But you are NOT anonymous — your bank knows who you are.**
 """)
 
     st.markdown("---")
@@ -531,7 +536,7 @@ YOU NEVER SOLD ANYTHING.
         ("1", "Download Gnosis Safe app", "safe.global or app store"),
         ("2", "Create a wallet", "Write down your seed phrase. Store it somewhere safe."),
         ("3", "Fund it with USDT", "Transfer USDT from wherever you have it"),
-        ("4", "Connect to Gnosis Pay", "Inside the app, link your wallet to Gnosis Pay"),
+        ("4", "Connect to Gnosis Pay", "Inside the app, link your wallet and EU/LatAm bank account to Gnosis Pay"),
         ("5", "Get a virtual debit card", "Instant — works right away"),
         ("6", "Start spending / ATM withdrawals", "Tap to pay, online shopping, ATM"),
     ]
@@ -540,7 +545,7 @@ YOU NEVER SOLD ANYTHING.
         c1.markdown(f"**{num}**")
         c2.markdown(f"**{title}** — {desc}")
 
-    st.warning("Limitation: Gnosis Pay card requires residency in EU or Latin America. NOT available in the US. The wallet itself works anywhere but the card won't issue without a supported country address.")
+    st.warning("Limitation: Gnosis Pay card requires EU or Latin American residency + a bank account in a supported country. NOT available in the US. You are NOT anonymous — your bank account identifies you. No passport upload needed, but the card issuer knows who you are through your bank.")
 
 # ─── PAGE 5B: DEBIT CARDS ──────────────────────────────────────────────────
 def page_cards():
@@ -570,7 +575,7 @@ def page_cards():
         "Top-Up Fee": ["None", "5% (virtual tier)", "None", "None", "None", "None"],
         "ATM Limit": ["Tiered by plan", "No ATM", "$400/mo free", "$100K/day", "Tiered", "Tiered"],
         "Spending Limit": ["$1M+/day (Metal)", "$5K/month", "High", "$1M/day", "High", "Medium"],
-        "KYC": ["EU/LatAm residency required", "Yes (removed no-KYC Apr 2026)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
+        "KYC": ["EU/LatAm residency + bank account", "Yes (removed no-KYC Apr 2026)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
         "Countries": ["EU + LatAm (no US)", "Global", "Global", "Global", "Global", "Limited"],
         "Best For": ["Privacy first", "Crypto funded card", "Best overall fees", "High limits", "Multi-chain", "Binance users"],
     }))
@@ -579,7 +584,7 @@ def page_cards():
     st.subheader("Gnosis Pay — Most Private (Self-Custody)")
 
     st.markdown("""
-**What it is:** Visa debit card linked directly to your Gnosis Safe wallet. Your USDT never leaves your wallet. Card requires EU/LatAm residency. No government ID upload — but you need an address in a supported country.
+**What it is:** Visa debit card linked directly to your Gnosis Safe wallet. Your USDT never leaves your wallet. Card requires EU/LatAm residency AND a bank account in a supported country. No passport/selfie upload — but your bank account and residency effectively identify you.
 
 **How it works:**
 ```
@@ -944,7 +949,7 @@ def page_apps():
 
     render(pd.DataFrame({
         "App": ["Gnosis Safe", "CoinGate", "MetaMask", "Trust Wallet", "Travala", "Telegram", "SimpleSwap", "Exolix"],
-        "What It's For": ["Self-custody wallet + debit card (EU/LatAm)", "Gift cards with email only", "DEX swaps", "Backup wallet", "Flights + hotels with USDT", "P2P matching", "No-KYC USDC to wire/cash", "No-KYC USDC to wire/cash"],
+        "What It's For": ["Self-custody wallet + card (EU/LatAm, bank required)", "Gift cards with email only", "DEX swaps", "Backup wallet", "Flights + hotels with USDT", "P2P matching", "No-KYC USDC to wire/cash", "No-KYC USDC to wire/cash"],
         "ID Needed": ["None", "Email only", "None", "None", "No (<$3K)", "None", "None", "None"],
         "Website": ["safe.global", "coingate.com", "metamask.io", "trustwallet.com", "travala.com", "telegram.org", "simpleswap.io", "exolix.com"],
     }))
