@@ -25,7 +25,7 @@ def page_home():
 **The goal:** $10M in USDT. Get it out as cash. No government ID. No bank needed.
 
 **Two angles:**
-- **P2P gambling business** — match gamblers to cash, take the spread
+- **P2P business** — connect people with cash to people with USDT, take the spread
 - **Collateral loan** — put up USDT, get cash, bank sees debt not income
 """)
 
@@ -61,7 +61,7 @@ def page_home():
             "None",
         ],
         "Best For": [
-            "Main business — gamblers",
+            "Main business — P2P",
             "Most private",
             "Gamblers want gift cards",
             "Gamblers need travel",
@@ -82,15 +82,16 @@ def page_home():
 
 # ─── PAGE 2: P2P GAMBLERS ────────────────────────────────────────────────────
 def page_p2p():
-    st.title("🤝 P2P — Gamblers Want to Buy Crypto")
-    st.subheader("The main business. Match gamblers to cash. Take the spread.")
+    st.title("🤝 P2P — People Have Cash, Want USDT")
+    st.subheader("Connect people with cash to people with USDT. Take the spread.")
     st.markdown("---")
 
     st.success("""
-**The model:**
-- Gamblers need USDT to bet on betting sites
-- You match them with people who have USDT
-- Cash goes to the seller. USDT goes to the gambler. You take a %.
+**The model:** Someone has cash. They want USDT. You match them. You take the spread.
+
+Why do they want it? Doesn't matter. Some gamble. Some just don't trust banks. Some want privacy. Some want to hold stablecoins. That's not your business.
+
+Your business is: connect cash to crypto. Take the fee.
 
 **No government ID. No bank account needed on your end. Just a wallet and Telegram.**
 """)
@@ -105,7 +106,7 @@ Wants USDT to bet with
      ↓
 YOU match them with a USDT SELLER
      ↓
-Seller sends USDT to gambler's wallet
+Seller sends USDT to buyer's wallet
      ↓
 Gambler pays cash to seller
      ↓
@@ -129,7 +130,7 @@ You take 2-5% of every trade
         ("1", "Get a wallet", "Download Trust Wallet or MetaMask. 5 minutes."),
         ("2", "Join Telegram groups", "Search: crypto P2P, USDt buy, betting crypto. Join gambling communities."),
         ("3", "Post an ad", "Say: buying USDT, paying cash, 2% below market."),
-        ("4", "Match buyer and seller", "Connect gambler to USDT holder. Hold USDT in escrow."),
+        ("4", "Match buyer and seller", "Connect buyer to USDT holder. Hold USDT in escrow."),
         ("5", "Confirm cash receipt", "Once cash lands, release the USDT."),
         ("6", "Keep the spread", "You made 2-5% on the trade. Repeat."),
     ]
@@ -139,11 +140,11 @@ You take 2-5% of every trade
         c2.markdown(f"**{title}** — {desc}")
 
     st.markdown("---")
-    st.subheader("What Gamblers Want")
+    st.subheader("What People Want")
 
     render(pd.DataFrame({
         "What": ["USDT", "Steam Cards", "Amazon Cards", "Apple Cards", "Google Play", "Skrill / Neteller", "Flight / Hotel bookings"],
-        "Why": ["For betting sites directly", "Skin gambling sites", "Sell for cash on marketplaces", "Buy apps / sell for cash", "Buy apps / sell for cash", "Direct deposit to betting accounts", "Resell for cash at discount"],
+        "Why": ["Hold stablecoins instead of cash", "Sell for cash / use on betting sites", "Sell for cash on marketplaces", "Buy apps / sell for cash", "Buy apps / sell for cash", "Direct deposit to betting accounts", "Resell for cash at discount"],
         "Spread You Can Take": ["2-5%", "10-20%", "10-15%", "10-15%", "10-15%", "5-10%", "10-20%"],
     }))
 
@@ -317,7 +318,7 @@ Walk away
 ```
 USDT → CoinGate (buy Steam card / Amazon / Apple)
      ↓
-Sell to gambler for 85 cents on the dollar
+Sell for 85 cents on the dollar
      ↓
 Cash in your pocket
 ```
@@ -371,9 +372,9 @@ Send BTC to their wallet
         st.markdown("""
         **Steam Cards**
         1. Buy $1,000 Steam card on CoinGate for $1,000 USDT
-        2. Sell to gambler for $850 cash
+        2. Sell for $850 cash
         3. Profit: $150
-        4. Gambler gets $1K gambling credits for $850
+        4. Buyer gets $1K in credits for $850
 
         **Win-win.**
         """)
@@ -461,16 +462,16 @@ YOU NEVER SOLD ANYTHING
 # ─── PAGE 6: GIFT CARDS + TRAVEL ─────────────────────────────────────────────
 def page_gift():
     st.title("🎁 Gift Cards + Flights — Resell for Cash")
-    st.subheader("Buy with USDT. Sell to gamblers. Cash in your pocket.")
+    st.subheader("Buy with USDT. Sell to people. Cash in your pocket.")
     st.markdown("---")
 
     st.success("""
 **The model:**
 1. Buy gift cards with USDT (no ID needed)
-2. Sell them to gamblers at 10-20% below face value
+2. Sell them to people at 10-20% below face value
 3. Cash in your pocket
 
-**Gamblers love gift cards** because they use them on betting sites or sell them for cash.
+**People buy gift cards** because they use them on betting sites or sell them for cash.
 """)
 
     st.markdown("---")
@@ -646,7 +647,7 @@ def page_apps():
         st.markdown("""
         **Morning:**
         - Check Telegram P2P groups
-        - Match 5-10 gambler trades
+        - Match 5-10 P2P trades
         - Confirm cash received
         - Release USDT
         """)
@@ -655,7 +656,7 @@ def page_apps():
         **Afternoon:**
         - Buy gift cards on CoinGate
         - Post on CardTrader / Telegram
-        - Sell to gamblers
+        - Sell to buyers
         - Collect cash
         """)
     with c3:
