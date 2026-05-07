@@ -730,9 +730,9 @@ def page_dex():
 
     st.code("""
 USDT
-  ↓ Aave V3 or Morpho Blue (no ID needed)
+  ↓ Aave V3 / Morpho Blue / Spark / Compound (no ID)
 Borrow USDC
-  ↓ SimpleSwap / Exolix (no ID needed)
+  ↓ SimpleSwap / Godex / AceChange / Exolix (no ID)
 USDC → USD via swap or P2P
   ↓
 Wire to your bank — OR —
@@ -759,12 +759,12 @@ Cash in your hand
     st.subheader("No-KYC Off-Ramps")
 
     render(pd.DataFrame({
-        "Platform": ["SimpleSwap", "Exolix", "StealthEX", "ChangeNOW"],
-        "KYC": ["None", "None", "None", "None (under $1.5K)"],
-        "Output": ["Wire, cash, crypto", "Wire, cash, crypto", "Wire, crypto", "Wire, crypto"],
-        "Speed": ["Hours", "Fast", "Fast", "Fast"],
-        "Coins": ["300+", "200+", "800+", "200+"],
-        "Notes": ["Best overall no-KYC option", "Fast, no account", "Non-custodial", "Above $1.5K needs ID"],
+        "Platform": ["SimpleSwap", "Godex", "AceChange", "Exolix", "StealthEX", "ChangeNOW"],
+        "KYC": ["None (may flag)", "None (no account)", "None (no registration)", "None", "None", "None (<$1.5K)"],
+        "Output": ["Wire, cash, crypto", "Wire, crypto", "Wire, crypto", "Wire, cash, crypto", "Wire, crypto", "Wire, crypto"],
+        "Speed": ["Hours", "Fast", "Fast", "Fast", "Fast", "Fast"],
+        "Coins": ["300+", "200+", "100+", "200+", "800+", "200+"],
+        "Notes": ["Best overall", "Built no-KYC from ground up", "Specialized non-KYC", "Fast, no account", "Non-custodial", "<$1.5K no ID"],
     }))
 
     st.markdown("---")
@@ -780,7 +780,7 @@ Bank does NOT see: crypto, USDT, blockchain, or any of your wallets
 """)
 
     st.markdown("---")
-    st.warning("Watch for DEX slippage on large trades. Use Morpho Blue for better rates than Aave. Always test with a small amount first.")
+    st.warning("More DeFi options: Spark Protocol (Aave fork, USDS lending), Compound III (single-collateral pools), Venus Protocol (BNB Chain, $3.7M exploit Mar 2026). Use Morpho Blue for better ETH rates. Always test with a small amount first.")
 
 # ─── PAGE 7: PRIVACY ─────────────────────────────────────────────────────────
 def page_privacy():
