@@ -39,7 +39,7 @@ def page_home():
             "🎁 Gift cards — Buy with USDT, sell for cash",
             "✈️ Travel — Buy bookings, resell",
             "💳 Loan — Collateral becomes debt",
-            "🔐 Gnosis Safe — Spend directly",
+            "🔐 Gnosis Safe + Pay — Debit card (EU/LatAm residency)",
             "💱 DEX → off-ramp — Swap, wire, cash",
         ],
         "Output": [
@@ -475,16 +475,19 @@ $1,700 cash in your pocket
 # ─── PAGE 5: GNOSIS SAFE ────────────────────────────────────────────────────
 def page_safe():
     st.title("🔐 Gnosis Safe — Spend USDT Directly")
-    st.subheader("Most private. Your wallet. No company holds it. ATM withdrawals. Debit card.")
+    st.subheader("Self-custody wallet. Spend via debit card. EU/LatAm residency required for card.")
     st.markdown("---")
 
     st.success("""
-**The key:** Your USDT never leaves your wallet.
+**The key:** Your USDT never leaves your wallet. No company holds your money. No one can freeze it.
 
-With Gnosis Safe + Gnosis Pay: you get a Visa debit card linked directly to your wallet.
-Spend anywhere Visa is accepted. Withdraw at ATMs. No company holding your money.
+With Gnosis Safe + Gnosis Pay: you get a Visa debit card linked directly to YOUR wallet — not a company wallet.
+Spend anywhere Visa is accepted. Withdraw at ATMs.
 
-**No 1099. No IRS reporting. No company can freeze it.**
+**Important:** Gnosis Pay card requires residency in an EU or Latin American country. NOT available in the US.
+No government ID upload required for the wallet itself — but card issuance requires a supported country address.
+
+**No 1099 from the card. No company controls your funds. True self-custody.**
 """)
 
     st.markdown("---")
@@ -507,7 +510,7 @@ YOU NEVER SOLD ANYTHING.
     st.subheader("What You Can Do")
 
     render(pd.DataFrame({
-        "What": ["Online shopping (Amazon, anything)", "In-store NFC tap to pay", "ATM withdrawals", "Bank transfer to another account", "Pay contractors directly", "No 1099 issued", "No company can freeze your money"],
+        "What": ["Online shopping (Amazon, anything)", "In-store NFC tap to pay", "ATM withdrawals", "Bank transfer to another account", "Pay contractors directly", "No 1099 from card," "Card: EU/LatAm. Wallet: global."],
         "How": ["Visa accepted anywhere", "Apple Pay / Google Pay", "Compatible ATMs worldwide", "Send from your wallet", "Send USDT to their wallet", "It's your wallet, not theirs", "True self-custody"],
     }))
 
@@ -515,10 +518,10 @@ YOU NEVER SOLD ANYTHING.
     st.subheader("vs Other Cards")
 
     render(pd.DataFrame({
-        "Feature": ["Who holds your USDT?", "Can they freeze it?", "Do they have your ID?", "IRS reporting?", "Best for"],
-        "Bleap": ["Bleap company", "Yes", "Yes (ID + selfie)", "Yes", "Easy spending"],
-        "RedotPay": ["RedotPay company", "Yes", "Yes (ID + selfie)", "Yes", "High limits"],
-        "Gnosis Safe + Pay": ["YOU", "No — impossible", "No", "No", "Privacy first"],
+        "Feature": ["Who holds your USDT?", "Can they freeze it?", "Do they have your ID on file?", "IRS reporting?", "Card requires"],
+        "Bleap": ["Bleap company", "Yes", "Yes (gov ID + selfie)", "Yes", "Global (KYC upload)"],
+        "RedotPay": ["RedotPay company", "Yes", "Yes (gov ID + selfie)", "Yes", "Global (KYC upload)"],
+        "Gnosis Safe + Pay": ["YOU (self-custody)", "No — impossible", "No gov ID upload", "No 1099 from card", "EU/LatAm residency"],
     }))
 
     st.markdown("---")
@@ -537,7 +540,7 @@ YOU NEVER SOLD ANYTHING.
         c1.markdown(f"**{num}**")
         c2.markdown(f"**{title}** — {desc}")
 
-    st.warning("Limitation: Mostly EU/EEA right now. US rollout coming. Check if it works in your country.")
+    st.warning("Limitation: Gnosis Pay card requires residency in EU or Latin America. NOT available in the US. The wallet itself works anywhere but the card won't issue without a supported country address.")
 
 # ─── PAGE 5B: DEBIT CARDS ──────────────────────────────────────────────────
 def page_cards():
@@ -567,7 +570,7 @@ def page_cards():
         "Top-Up Fee": ["None", "5% (virtual tier)", "None", "None", "None", "None"],
         "ATM Limit": ["Tiered by plan", "No ATM", "$400/mo free", "$100K/day", "Tiered", "Tiered"],
         "Spending Limit": ["$1M+/day (Metal)", "$5K/month", "High", "$1M/day", "High", "Medium"],
-        "KYC": ["No (your Safe)", "Yes (removed no-KYC Apr 2026)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
+        "KYC": ["EU/LatAm residency required", "Yes (removed no-KYC Apr 2026)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
         "Countries": ["EU + LatAm (no US)", "Global", "Global", "Global", "Global", "Limited"],
         "Best For": ["Privacy first", "Crypto funded card", "Best overall fees", "High limits", "Multi-chain", "Binance users"],
     }))
@@ -576,7 +579,7 @@ def page_cards():
     st.subheader("Gnosis Pay — Most Private (Self-Custody)")
 
     st.markdown("""
-**What it is:** Visa debit card linked directly to your Gnosis Safe wallet. Your USDT never leaves your wallet. You control it.
+**What it is:** Visa debit card linked directly to your Gnosis Safe wallet. Your USDT never leaves your wallet. Card requires EU/LatAm residency. No government ID upload — but you need an address in a supported country.
 
 **How it works:**
 ```
@@ -696,7 +699,7 @@ KYC is now required for all new cards. Existing no-KYC cards continue to work te
     st.subheader("Which Card When")
 
     render(pd.DataFrame({
-        "Situation": ["Most private — no one holds your money", "Best for everyday spending (low fees)", "Need to spend $100K+ through a card", "Already use Binance ecosystem", "Need card that works on Meta/Google Ads"],
+        "Situation": ["Most private — self-custody (EU/LatAm only)", "Best for everyday spending (low fees)", "Need to spend $100K+ through a card", "Already use Binance ecosystem", "Need card that works on Meta/Google Ads"],
         "Best Card": ["Gnosis Pay", "Bleap Mastercard", "RedotPay", "Binance Card", "RedotPay (US Visa BIN)"],
     }))
 
@@ -941,7 +944,7 @@ def page_apps():
 
     render(pd.DataFrame({
         "App": ["Gnosis Safe", "CoinGate", "MetaMask", "Trust Wallet", "Travala", "Telegram", "SimpleSwap", "Exolix"],
-        "What It's For": ["Spend USDT directly, ATM, debit card", "Gift cards with email only", "DEX swaps", "Backup wallet", "Flights + hotels with USDT", "P2P matching", "No-KYC USDC to wire/cash", "No-KYC USDC to wire/cash"],
+        "What It's For": ["Self-custody wallet + debit card (EU/LatAm)", "Gift cards with email only", "DEX swaps", "Backup wallet", "Flights + hotels with USDT", "P2P matching", "No-KYC USDC to wire/cash", "No-KYC USDC to wire/cash"],
         "ID Needed": ["None", "Email only", "None", "None", "No (<$3K)", "None", "None", "None"],
         "Website": ["safe.global", "coingate.com", "metamask.io", "trustwallet.com", "travala.com", "telegram.org", "simpleswap.io", "exolix.com"],
     }))
