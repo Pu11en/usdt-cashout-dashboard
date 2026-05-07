@@ -917,6 +917,109 @@ def page_apps():
         - Track all trades
         """)
 
+# ─── PAGE 11: SHORTCUTS ─────────────────────────────────────────────────────
+def page_shortcuts():
+    st.title("⚡ Shortcuts — Fastest Paths to Cash")
+    st.subheader("Pick your situation. Get the fastest route. No fluff.")
+    st.markdown("---")
+
+    tab1, tab2, tab3 = st.tabs(["Cash Now (Today)", "Cash This Week", "Cash This Month"])
+
+
+    with tab1:
+        st.markdown("**If you need cash RIGHT NOW — same day:**")
+
+        render(pd.DataFrame({
+            "How": ["Local meet", "Gift cards", "Gnosis Pay ATM"],
+            "What to Do": ["Telegram + local meet. Cash in hand.", "CoinGate: buy Steam cards. Sell for 85 cents on dollar.", "Gnosis Safe: ATM withdrawal worldwide."],
+            "Amount": ["Any size", "Up to $50K/day", "Per ATM limit"],
+            "ID Needed": ["None", "Email only", "None"],
+            "Risk": ["Trust-based", "Low", "None"],
+        }))
+
+        st.markdown("---")
+        st.markdown("""
+        **Fastest same-day path (no ID):**
+
+        1. Go to CoinGate.com
+        2. Buy Steam cards with USDT
+        3. Post on CardTrader.com or Telegram
+        4. Sell for 85 cents on the dollar
+        5. Cash in your pocket same day
+
+        **No ID. No bank. Cash in your pocket.**
+        """)
+
+    with tab2:
+        st.markdown("**If you have a few days — more volume:**")
+
+        render(pd.DataFrame({
+            "How": ["P2P platform", "Goods arbitrage", "DEX to SimpleSwap"],
+            "What to Do": ["LocalCoinSwap or NoOnes. Post ads. Match buyers and sellers.", "Buy and flip: cars, watches, electronics.", "Aave to USDC to SimpleSwap to wire or cash."],
+            "Amount": ["Unlimited", "$10K to $1M+", "Up to DeFi liquidity"],
+            "ID Needed": ["None", "None", "None"],
+            "Time": ["1-3 days to get going", "3-7 days per flip", "1-3 days"],
+        }))
+
+        st.markdown("---")
+        st.markdown("""
+        **Best path this week:**
+
+        1. Open MetaMask + fund with USDT
+        2. Go to Aave V3 (app.aave.com)
+        3. Deposit USDT, borrow USDC
+        4. Send USDC to SimpleSwap.io
+        5. Choose: wire to bank OR cash pickup
+
+        **Bank sees: wire from SimpleSwap. No ID. Done in 3 days.**
+        """)
+
+    with tab3:
+        st.markdown("**If you have a week or more — large amounts:**")
+
+        render(pd.DataFrame({
+            "How": ["Loan (debt)", "P2P platform at scale", "Real estate + resell"],
+            "What to Do": ["Swap USDT to BTC, collateral at Ledn, wire to bank.", "Build Telegram presence + LocalCoinSwap + NoOnes.", "Buy property with USDT (RealOpen), resell for cash."],
+            "Amount": ["Up to 50% of your USDT", "$100K to $10M+", "Large"],
+            "ID Needed": ["Yes (at Ledn)", "None", "None (at RealOpen <$10K)"],
+            "Time": ["1-2 weeks to setup", "1-4 weeks to build", "Weeks to months"],
+        }))
+
+        st.markdown("---")
+        st.markdown("""
+        **Best path for large amounts:**
+
+        1. Swap USDT to BTC (one taxable event)
+        2. Put BTC as collateral at Ledn.io
+        3. They wire USD to your bank
+        4. Bank sees: personal loan from Ledn Capital
+        5. Done. Clean entry to banking system.
+        """)
+
+    st.markdown("---")
+    st.subheader("The Four-Fastest Methods — Ranked")
+
+    render(pd.DataFrame({
+        "Rank": ["1", "2", "3", "4"],
+        "Method": ["Local meet (in person)", "Gift cards to CoinGate to resell", "Gnosis Safe + Pay (ATM)", "Aave to SimpleSwap (wire)"],
+        "Speed": ["Instant", "Same day", "Instant", "1-3 days"],
+        "ID Needed": ["None", "Email only", "None", "None"],
+        "Bank Needed": ["No", "No", "No", "No"],
+        "Amount": ["Any size", "Up to $50K/day", "Per ATM limit", "Large amounts"],
+        "Privacy": ["Highest", "High", "Highest", "High"],
+    }))
+
+    st.markdown("---")
+    st.subheader("Pick One and Start")
+
+    st.markdown("""
+    **Start here:**
+    1. Download Gnosis Safe + CoinGate + Telegram
+    2. Do one local meet this week
+    3. Sell a gift card today
+    4. Scale from there
+    """)
+
 # ─── APP SHELL ────────────────────────────────────────────────────────────────
 PAGES = {
     "🏠 Home": page_home,
