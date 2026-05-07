@@ -1007,6 +1007,81 @@ def page_apps():
         """)
 
 # ─── PAGE 11: SHORTCUTS ─────────────────────────────────────────────────────
+# ─── PAGE 6B: BUSINESS SPENDING ─────────────────────────────────────────────
+def page_business():
+    st.title("🏢 Business Spending — Use USDT Without Converting")
+    st.subheader("Pay expenses directly with USDT. No need to convert to cash first.")
+    st.markdown("---")
+
+    st.success("""
+**The idea:** Instead of converting USDT to cash and THEN spending it — just spend the USDT directly on real things.
+
+If you can pay for things in USDT, you never need to convert it. No conversion = no tax event = no bank involvement.
+""")
+
+    st.markdown("---")
+    st.subheader("Real Estate — RealOpen")
+
+    st.markdown("""
+**RealOpen.com** — Buy property worldwide with USDT. No conversion needed.
+
+- $9.4 million in USDT verified for U.S. crypto home purchases (April 2026)
+- No withdrawal limits. No friction.
+- Buy homes with Bitcoin, Ethereum, or any major crypto
+- Works like a normal real estate transaction — title transfer, escrow, everything
+- Properties worldwide
+""")
+
+    st.markdown("---")
+    st.subheader("Gold — SuisseGold")
+
+    st.markdown("""
+**SuisseGold.com** — Buy physical gold and silver with USDT.
+
+- Accepts Tether (USDT) payments directly (launched March 2026)
+- Physical gold and silver delivered
+- Crypto-to-bullion direct
+- No need to convert to fiat first
+
+**Why gold:** Different asset class. Holds value. If you want to diversify — gold is the classic answer.
+""")
+
+    st.markdown("---")
+    st.subheader("Payroll — Bitwage")
+
+    st.markdown("""
+**Bitwage.com** — Send payroll or receive salary in USDT. $400M+ processed.
+
+- 11 years in business. Now part of Paystand.
+- Integrates with ADP and Gusto
+- No fees on crypto payouts
+- No custody issues — goes directly to your wallet
+
+**How to use it:**
+- Pay contractors and freelancers in USDT
+- Receive your own salary in USDT
+- No bank needed on the receiving end
+""")
+
+    st.markdown("---")
+    st.subheader("Build a USDT-Native Business")
+
+    st.markdown("""
+**The model:**
+1. Set up a business that accepts USDT payments
+2. Pay all expenses in USDT where possible
+3. Pay yourself a salary in USDT via Bitwage
+4. Use RealOpen to buy property
+5. Buy gold with SuisseGold
+
+**You never convert USDT to fiat. You just spend it directly.**
+
+**Companies that accept USDT directly:**
+- Namecheap — domains, hosting
+- Surfshark — VPN service
+- Travala — travel for your team
+- Many SaaS tools via crypto payment gateways (CoinGate, BitPay)
+""")
 def page_shortcuts():
     st.title("⚡ Shortcuts — Fastest Paths to Cash")
     st.subheader("Pick your situation. Get the fastest route. No fluff.")
@@ -1117,6 +1192,7 @@ PAGES = {
     "💵 Goods Arbitrage": page_goods,
     "🔐 Gnosis Safe": page_safe,
     "💳 Debit Cards": page_cards,
+    "🏢 Business Spending": page_business,
     "💱 DEX + Off-Ramp": page_dex,
     "🛡️ Privacy": page_privacy,
     "🏦 Banking": page_banking,
