@@ -443,11 +443,11 @@ def page_privacy():
     st.markdown("---")
 
     render(pd.DataFrame({
-        "Rank": ["1", "2", "3", "4", "5", "6", "7"],
-        "Method": ["Local meet (in person)", "Goods arbitrage", "Gnosis Safe + Pay", "P2P platform", "Gift cards to resell", "Travel to resell", "DEX to off-ramp", "Loan (debt)"],
-        "ID Needed": ["None", "None", "None", "None", "Email only", "No (<$3K)", "None", "Yes (loan company)"],
-        "Scale": ["Small", "Large", "Large", "Unlimited", "Large", "Medium", "Large", "Large"],
-        "Risk": ["Trust-based", "None", "None", "AML watch at scale", "Gift card resale", "Booking resale", "None", "Credit report"],
+        "Rank": ["1", "2", "3", "4", "5", "6"],
+        "Method": ["P2P (in person or platform)", "Goods arbitrage", "DeFi lending + off-ramp", "Gift cards to resell", "Travel to resell", "DEX to SimpleSwap"],
+        "ID Needed": ["None", "None", "No ID", "Email only", "No (<$3K)", "No ID"],
+        "Scale": ["Unlimited", "Large", "Large", "Large", "Medium", "Large"],
+        "Risk": ["AML watch at scale", "None", "No counter-party", "Gift card resale", "Booking resale", "Exchange KYC flag"],
     }))
 
     st.markdown("---")
