@@ -11,10 +11,6 @@ st.set_page_config(
 def render(df):
     st.dataframe(df, use_container_width=True, hide_index=True)
 
-def section(title, body):
-    st.subheader(title)
-    st.markdown(body)
-
 # ─── PAGE 1: HOME ────────────────────────────────────────────────────────────────
 def page_home():
     st.title("💸 USDT → Cash")
@@ -22,11 +18,14 @@ def page_home():
     st.markdown("---")
 
     st.success("""
-**The goal:** $10M in USDT. Get it out as cash. No government ID. No bank needed.
+**The goal:** USDT in your wallet. Cash in your pocket. No government ID. No one keeping a file on you.
 
-**Two angles:**
-- **P2P business** — connect people with cash to people with USDT, take the spread
-- **Collateral loan** — put up USDT, get cash, bank sees debt not income
+**How it works:**
+- People have cash and want USDT. You connect them. Take the spread.
+- OR put up USDT as collateral. Get a loan. Bank sees debt — not income.
+- OR buy things with USDT and sell them for cash.
+
+**Three angles. All private. All real.**
 """)
 
     st.markdown("---")
@@ -34,91 +33,115 @@ def page_home():
 
     render(pd.DataFrame({
         "Method": [
-            "🤝 P2P — Gamblers buy crypto",
-            "👤 Local P2P — In person cash",
-            "🎁 Gift Cards — Buy, resell for cash",
-            "✈️ Flights/Hotels — Buy, resell",
-            "💱 DEX → BTC → cash meet",
-            "💳 Loan — Put up USDT as collateral",
+            "🤝 P2P — Cash people want USDT",
+            "👤 Local meet — Cash in hand",
+            "💵 Goods arbitrage — Buy with USDT, sell for cash",
+            "🎁 Gift cards — Buy with USDT, sell for cash",
+            "✈️ Travel — Buy bookings, resell",
+            "💳 Loan — Collateral becomes debt",
             "🔐 Gnosis Safe — Spend directly",
+            "💱 DEX → off-ramp — Swap, wire, cash",
         ],
         "Output": [
             "Cash via platform escrow",
             "Cash in hand",
             "Cash from reselling",
             "Cash from reselling",
-            "Cash in hand",
-            "Wire to bank OR cash",
+            "Cash from reselling",
+            "Wire or cash",
             "Spend anywhere",
+            "Wire or cash",
         ],
         "ID Needed": [
             "None",
             "None",
-            "Email only",
-            "No (under $3K)",
             "None",
-            "Yes (loan companies)",
+            "Email only",
+            "No (<$3K)",
+            "Yes (loan company)",
+            "None",
             "None",
         ],
         "Best For": [
-            "Main business — P2P",
+            "Main business — scale up",
             "Most private",
-            "Gamblers want gift cards",
-            "Gamblers need travel",
-            "Privacy first",
-            "Large amounts",
-            "Spending, not selling",
+            "Large items",
+            "Quick turnaround",
+            "People who need travel",
+            "Large amounts to bank",
+            "Daily spending",
+            "Privacy route",
         ],
     }))
 
     st.markdown("---")
-    st.subheader("The Privacy Stack")
+    st.subheader("The Three Angles")
 
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Most Private", "Local P2P", "Cash in hand")
-    c2.metric("Best Tech", "Gnosis Safe", "No one holds it")
-    c3.metric("Business", "P2P Gamblers", "Main income")
-    c4.metric("Bank Cash", "Loan", "Debt not income")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown("""
+        **1. P2P Business**
+        Connect cash people to USDT people.
+        Take 2-5% on every trade.
+        Scale from Telegram to platform.
+        """)
+    with c2:
+        st.markdown("""
+        **2. Goods Arbitrage**
+        Buy things with USDT.
+        Sell them for cash.
+        Flips, cars, hotels, anything.
+        """)
+    with c3:
+        st.markdown("""
+        **3. Loan Route**
+        Put USDT as collateral.
+        Get debt — not income.
+        Wire to any bank.
+        """)
 
-# ─── PAGE 2: P2P GAMBLERS ────────────────────────────────────────────────────
+# ─── PAGE 2: P2P ────────────────────────────────────────────────────────────────
 def page_p2p():
-    st.title("🤝 P2P — People Have Cash, Want USDT")
-    st.subheader("Connect people with cash to people with USDT. Take the spread.")
+    st.title("🤝 P2P — Connect Cash People to USDT People")
+    st.subheader("The main business. Someone has cash. They want USDT. You match them. Take the spread.")
     st.markdown("---")
 
     st.success("""
-**The model:** Someone has cash. They want USDT. You match them. You take the spread.
+**The model:**
+- Someone has cash. They want USDT instead of cash.
+- Another person has USDT and wants cash.
+- You match them. Cash goes to the seller. USDT goes to the buyer. You take a %.
 
-Why do they want it? Doesn't matter. Some gamble. Some just don't trust banks. Some want privacy. Some want to hold stablecoins. That's not your business.
+Why do they want it? Doesn't matter. Some want to hold stablecoins. Some gamble.
+Some just don't trust banks. That's not your business.
 
-Your business is: connect cash to crypto. Take the fee.
+Your business: connect cash to crypto. Take the fee.
 
-**No government ID. No bank account needed on your end. Just a wallet and Telegram.**
+**No government ID needed on your end. Just a wallet and Telegram.**
 """)
 
     st.markdown("---")
     st.subheader("How It Works")
 
     st.code("""
-GAMBLER (has cash)
+SOMEONE (has cash, wants USDT)
      ↓
-Wants USDT to bet with
+YOU match them with a USDT HOLDER
      ↓
-YOU match them with a USDT SELLER
+USDT holder sends USDT to buyer's wallet
      ↓
-Seller sends USDT to buyer's wallet
-     ↓
-Gambler pays cash to seller
+Cash goes to the USDT holder
      ↓
 You take 2-5% of every trade
+YOUR USDT NEVER MOVES.
 """, language=None)
 
     st.markdown("---")
-    st.subheader("Where to Find Gamblers")
+    st.subheader("Where to Find People")
 
     render(pd.DataFrame({
-        "Place": ["Telegram P2P groups", "LocalCoinSwap.com", "NoOnes.com", "Build your own platform", "LocalBitcoin meetups", "Craigslist / FB Marketplace"],
-        "What": ["Crypto signal groups, gambling groups", "Decentralized P2P, escrow built-in", "Decentralized P2P, Telegram integration", "Build your own app or website", "In-person cash meets", "Local cash sellers"],
+        "Place": ["Telegram", "LocalCoinSwap.com", "NoOnes.com", "Build your own platform", "Local meetups", "Craigslist / FB Marketplace"],
+        "What": ["Crypto groups, anyone wanting USDT", "Decentralized P2P, escrow built-in", "Decentralized P2P, Telegram integration", "Build your own app or website", "In-person cash meets", "Local cash sellers"],
         "Scale": ["Medium", "High", "High", "Unlimited", "Small", "Small"],
         "Your ID": ["None", "None", "None", "None", "None", "None"],
     }))
@@ -128,8 +151,8 @@ You take 2-5% of every trade
 
     steps = [
         ("1", "Get a wallet", "Download Trust Wallet or MetaMask. 5 minutes."),
-        ("2", "Join Telegram groups", "Search: crypto P2P, USDt buy, betting crypto. Join gambling communities."),
-        ("3", "Post an ad", "Say: buying USDT, paying cash, 2% below market."),
+        ("2", "Join Telegram groups", "Search: crypto P2P, USDt buy. Find anyone with cash who wants USDT."),
+        ("3", "Post an ad", "Say: facilitating trades, small fee per transaction."),
         ("4", "Match buyer and seller", "Connect buyer to USDT holder. Hold USDT in escrow."),
         ("5", "Confirm cash receipt", "Once cash lands, release the USDT."),
         ("6", "Keep the spread", "You made 2-5% on the trade. Repeat."),
@@ -144,7 +167,7 @@ You take 2-5% of every trade
 
     render(pd.DataFrame({
         "What": ["USDT", "Steam Cards", "Amazon Cards", "Apple Cards", "Google Play", "Skrill / Neteller", "Flight / Hotel bookings"],
-        "Why": ["Hold stablecoins instead of cash", "Sell for cash / use on betting sites", "Sell for cash on marketplaces", "Buy apps / sell for cash", "Buy apps / sell for cash", "Direct deposit to betting accounts", "Resell for cash at discount"],
+        "Why": ["Hold stablecoins instead of cash", "Sell for cash / use on sites", "Sell for cash on marketplaces", "Buy apps / sell for cash", "Buy apps / sell for cash", "Direct deposit to accounts", "Resell for cash at discount"],
         "Spread You Can Take": ["2-5%", "10-20%", "10-15%", "10-15%", "10-15%", "5-10%", "10-20%"],
     }))
 
@@ -153,38 +176,39 @@ You take 2-5% of every trade
 
     st.markdown("""
 **Start:** Telegram + wallet = $0 to start
+
 **Scale:** Build a P2P website or app
 
-**What a platform does:** Escrow, user verification (optional), payment rails, dispute resolution, volume tracking
+**What a platform does:** Escrow, payment rails, dispute resolution, volume tracking
 
-**Technology:** White-label P2P software, NoOnes/LocalCoinSwap API, or build from scratch
+**At scale:** FinCEN MSB registration + Wyoming MTL before doing serious volume.
 
-**No ID needed** at small scale. At serious volume: FinCEN MSB + Wyoming MTL.
+**This is a real business. People pay premium for fast, private crypto trades.**
 """)
 
     st.warning("Paxful was shut down Dec 2025. $7.5M fine. No MTL licenses. No AML program. Get licensed before doing serious volume.")
 
 # ─── PAGE 3: LOANS ─────────────────────────────────────────────────────────────
 def page_loans():
-    st.title("💳 Loan — Put Up USDT, Get Cash")
-    st.subheader("Two paths: bank wire or cash in hand. Both work.")
+    st.title("💳 Loan — Collateral Becomes Debt")
+    st.subheader("Put up USDT. Get a loan. Bank sees debt. Not income. Not taxable.")
     st.markdown("---")
 
     st.success("""
-**The key insight:** A loan against your USDT is DEBT, not income.
+**The key insight:** When you put up collateral and take a loan — it's DEBT, not income.
 
 The bank sees: personal loan from a company
 The IRS sees: debt
 You see: cash in your account
 
-**No capital gains tax. No income tax. Banks don't ask about your collateral.**
+**No capital gains. No income tax. Banks don't ask about your collateral.**
 """)
 
     st.markdown("---")
-    st.subheader("Path 1: Bank Wire (Need Some ID)")
+    st.subheader("US Bank — Personal Loan (Simplest)")
 
     st.markdown("""
-**Best for:** Getting large amounts into a bank account cleanly
+**Best for:** Getting large amounts into a US bank cleanly
 
 ```
 USDT
@@ -198,7 +222,7 @@ They wire USD to your bank
 Bank sees: personal loan from Ledn Capital
 ```
 
-**Bank sees:**
+**What bank sees:**
 ```
 Wire transfer: personal loan
 Source: Ledn Capital
@@ -216,211 +240,213 @@ Source: Ledn Capital
     }))
 
     st.markdown("---")
-    st.subheader("Path 2: Cash (No Bank, No ID on the Loan)")
+    st.subheader("Foreign Bank — No US Questions")
 
     st.markdown("""
-**Best for:** Keeping everything private, no bank involved
+**Best for:** If you have connections in foreign banking. Dollarized countries (Panama, UAE, etc.) see USD wires as completely normal.
 
 ```
 USDT
   ↓
-Deposit into Aave V3 or Morpho Blue (no ID needed)
+Swap to BTC (one taxable event, pay once)
+  ↓
+Use BTC as collateral at a loan platform OR
+Use a bank that accepts stablecoin deposits (FV Bank)
+  ↓
+They wire USD to your foreign bank account
+  ↓
+Foreign bank sees: USD wire, debt on the books
+No US tax. No US reporting.
+```
+
+**What banks in Panama, UAE, Cayman see:** A normal USD wire. They don't know or care about your USDT. USD is USD to them.
+
+**Why foreign banks don't ask:** They're used to large USD wires from abroad. It's normal for them.
+""")
+
+    st.markdown("---")
+    st.subheader("No-Bank Route — Cash in Hand")
+
+    st.markdown("""
+**Best for:** No bank involved at all. Cash only.
+
+```
+USDT
+  ↓
+Deposit into Aave V3 or Morpho Blue (no ID)
   ↓
 Borrow USDC (instant, no ID)
   ↓
-Send USDC to SimpleSwap / Exolix (no ID needed)
+Send USDC to SimpleSwap (no ID)
   ↓
-USDC → USD via their P2P or swap
+USDC → USD via their swap or P2P
   ↓
-Cash in hand OR wire to your bank
+Cash in hand
 ```
 
-**SimpleSwap and Exolix are no-KYC exchanges.**
-They send the wire. The bank sees: wire from SimpleSwap.
-**No one knows it was your USDT.**
+**No bank. No statements. No records.**
 """)
-
-    render(pd.DataFrame({
-        "Platform": ["Aave V3", "Morpho Blue", "SimpleSwap", "Exolix", "StealthEX"],
-        "Role": ["Borrow USDC against USDT", "Borrow USDC against ETH", "No-KYC off-ramp USDC→USD", "No-KYC off-ramp USDC→USD", "No-KYC off-ramp USDC→USD"],
-        "Collateral": ["USDT / ETH / wstETH", "ETH / USDC", "None", "None", "None"],
-        "ID Needed": ["None", "None", "None", "None", "None"],
-        "Output": ["USDC (on-chain)", "USDC (on-chain)", "Wire / cash / crypto", "Wire / cash / crypto", "Wire / crypto"],
-        "Notes": ["Primary DeFi option", "Better rates than Aave", "Best no-KYC off-ramp", "Fast, no account", "800+ coins"],
-    }))
 
     st.markdown("---")
     st.subheader("What the Bank Actually Sees")
 
     render(pd.DataFrame({
-        "Scenario": ["Loan from Ledn (Path 1)", "Wire from SimpleSwap (Path 2)", "Cash in person (any method)"],
-        "Bank Sees": ["Personal loan from Ledn Capital", "Wire from SimpleSwap", "Nothing — cash in your pocket"],
-        "IRS Sees": ["Debt (not income)", "Not reported", "Not reported"],
-        "Red Flags": ["None", "None (looks like normal wire)", "None — most private"],
+        "Scenario": ["Loan from Ledn (US bank)", "Wire to foreign bank (Panama/UAE)", "Cash in hand (no bank)"],
+        "Bank Sees": ["Personal loan from Ledn Capital", "USD wire from abroad", "Nothing — cash in your pocket"],
+        "IRS Sees": ["Debt (not income)", "Not reported to US IRS", "Not reported"],
+        "Questions Asked": ["None", "None in dollarized countries", "None"],
     }))
 
     st.markdown("---")
-    st.subheader("The USDT Problem")
+    st.warning("One swap = one taxable event. If you swap USDT to BTC to get a loan: pay the small tax on that one sale. Done. Everything after = no tax.")
 
-    st.markdown("""
-Most loan platforms want BTC or ETH as collateral, not USDT.
+# ─── PAGE 4: GOODS ARBITRAGE ─────────────────────────────────────────────────
+def page_goods():
+    st.title("💵 Goods Arbitrage — Buy With USDT, Sell for Cash")
+    st.subheader("Use USDT to buy things. Sell them for cash. Keep the spread.")
+    st.markdown("---")
 
-**Solution:** One swap USDT → BTC/ETH, then take the loan.
-- One taxable event (you sold USDT)
-- Pay the small tax once
-- Then borrow against BTC
+    st.success("""
+**The model:**
+1. Buy something with USDT
+2. Find a buyer who will pay cash
+3. Sell it for less than you paid — but they pay in cash
+4. You got cash. They got what they wanted. Win-win.
 
-**OR just use the cash methods** (P2P, gift cards, local meet) — no swap needed, no tax event.
+**Works with: cars, watches, art, electronics, flights, hotels, anything.**
 """)
 
-# ─── PAGE 4: CASH ONLY ───────────────────────────────────────────────────────
-def page_cash():
-    st.title("💵 Cash Only — No Bank Involved")
-    st.subheader("Every way to get USDT → cash in your hand. No wire. No bank. No SARs.")
     st.markdown("---")
+    st.subheader("Flips and Cars")
+
+    st.markdown("""
+**Classic flip:** Buy a car with USDT. Sell it for cash.
+
+```
+USDT → Buy car ($50,000)
+     ↓
+List it for $47,000 cash
+     ↓
+Buyer pays you $47,000 cash
+     ↓
+You kept $47,000 cash
+     ↓
+USDT is gone. Cash in your pocket.
+```
+
+**No sale on the blockchain.** You bought a car. You sold a car. Normal transaction.
+
+**Where to find buyers:** Private sales, dealers who take cash, anyone who can't or doesn't want to use their bank for large purchases.
+""")
+
+    st.markdown("---")
+    st.subheader("Gift Cards (Fastest Turnaround)")
+
+    st.markdown("""
+**CoinGate.com:** Email only. No ID. Buy gift cards with USDT instantly.
+
+```
+USDT → CoinGate (buy $1,000 Steam card)
+     ↓
+Post for sale: $850 cash
+     ↓
+Buyer pays $850 cash
+     ↓
+$850 cash in your pocket
+```
+
+**Profit per card:** 10-20% of face value.
+
+**Steam cards:** People pay premium for gaming credits.
+**Amazon / Apple:** Resell on CardTrader.com, Reddit, or directly.
+**Gift cards = fastest cash turnaround.**
+""")
+
+    st.markdown("---")
+    st.subheader("Flights and Hotels")
+
+    st.markdown("""
+**Travala.com:** USDT accepted directly. 2M+ hotels, 600+ airlines. No ID under $3,000.
+
+```
+USDT → Travala (buy $2,000 hotel booking)
+     ↓
+Sell the booking voucher for $1,700 cash
+     ↓
+$1,700 cash in your pocket
+```
+
+**Why this works:** Some people can't pay online with a card. Some prefer to pay someone directly. You provide that service.
+
+**Profit:** 10-20% below face value.
+""")
+
+    st.markdown("---")
+    st.subheader("What to Flip")
 
     render(pd.DataFrame({
-        "Method": ["Local P2P in person", "Gift cards → resell", "Flights / hotels → resell", "DEX → BTC → cash meet", "P2P platform escrow"],
-        "ID Needed": ["None", "Email only", "No (under $3K)", "None", "None"],
-        "Cash Speed": ["Instant", "Same day", "Same day", "Same day", "Same day"],
-        "Best For": ["Most private", "Gamblers want cards", "Gamblers need travel", "Privacy first", "Scaling up"],
+        "Item": ["Gift cards (Steam, Amazon, Apple)", "Hotel bookings", "Flight bookings", "Cars", "Watches", "Electronics", "Art"],
+        "Speed": ["Instant", "Same day", "Same day", "Days to weeks", "Days to weeks", "Days", "Days to weeks"],
+        "Profit": ["10-20%", "10-20%", "10-20%", "5-15%", "5-20%", "5-15%", "Varies"],
+        "Risk": ["Low", "Low", "Low", "Medium", "High value", "Low", "High value"],
+        "Best For": ["Fast cash, repeatable", "People needing travel", "People needing travel", "Large amounts", "High-end items", "Quick cash", "Art collectors"],
     }))
 
     st.markdown("---")
-    st.subheader("Local P2P In Person")
-
-    st.markdown("""
-**Most private method. Cash in hand. No one knows.**
-
-```
-Gambler wants USDT
-     ↓
-Agree on price (usually 2-5% below market)
-     ↓
-Meet at bank or coffee shop
-     ↓
-They hand you cash
-     ↓
-You send USDT to their wallet
-     ↓
-Walk away
-```
-
-**No app needed.** Trust-based. Build repeat relationships.
-""")
-
-    st.markdown("---")
-    st.subheader("Gift Cards → Resell for Cash")
-
-    st.markdown("""
-**CoinGate.com:** Email only. No ID. Buy gift cards with USDT.
-
-```
-USDT → CoinGate (buy Steam card / Amazon / Apple)
-     ↓
-Sell for 85 cents on the dollar
-     ↓
-Cash in your pocket
-```
-
-**Steam cards** = skin gambling sites. Gamblers pay premium.
-**Amazon / Apple** = sell on CardTrader.com or Reddit for cash.
-**Profit per card:** 10-20% of face value.
-""")
-
-    st.markdown("---")
-    st.subheader("Flights and Hotels → Resell")
-
-    st.markdown("""
-**Travala.com:** No ID under $3K. Buy flights and hotels with USDT.
-
-```
-USDT → Travala (buy hotel booking)
-     ↓
-Sell the booking voucher to a traveler for 20% below
-     ↓
-Cash in your pocket
-```
-
-**Gamblers sometimes want this too** — people who can't pay online for whatever reason.
-""")
-
-    st.markdown("---")
-    st.subheader("DEX → BTC → Cash Meet")
-
-    st.markdown("""
-**When you want BTC instead of USDT:**
-
-```
-USDT → Uniswap / THORSwap → BTC
-     ↓
-Post on NoOnes / LocalCoinSwap: selling BTC
-     ↓
-Buyer pays you cash in person
-     ↓
-Send BTC to their wallet
-```
-
-**Banks see nothing.** Cash in your hand. BTC sale paper trail is separate from USDT.
-""")
-
-    st.markdown("---")
-    st.subheader("The Math — Gift Card Example")
+    st.subheader("The Math")
 
     c1, c2 = st.columns(2)
     with c1:
         st.markdown("""
-        **Steam Cards**
-        1. Buy $1,000 Steam card on CoinGate for $1,000 USDT
-        2. Sell for $850 cash
-        3. Profit: $150
-        4. Buyer gets $1K in credits for $850
-
-        **Win-win.**
-        """)
-    with c2:
-        st.markdown("""
-        **Scale: 10 cards/day**
+        **Gift Cards — Fast Scale**
         - 10 × $1,000 Steam cards = $10,000 USDT
         - Sell each for $850 = $8,500 cash
         - Daily profit: $1,500
         - Monthly: $45,000 profit
 
-        **No bank. No ID. Cash in your pocket.**
+        No bank. No ID. Cash in your pocket.
         """)
+    with c2:
+        st.markdown("""
+        **Cars — Large Amounts**
+        - Buy $50,000 car with USDT
+        - Sell for $47,000 cash
+        - Profit: $47,000 cash
+        - One flip = half your capital back as cash
+
+        Slower but high volume.
+        """)
+    st.warning("Bitrefill was hacked March 2026. 18,500 customer records exposed. Use CoinGate instead.")
 
 # ─── PAGE 5: GNOSIS SAFE ────────────────────────────────────────────────────
 def page_safe():
     st.title("🔐 Gnosis Safe — Spend USDT Directly")
-    st.subheader("Most private. Your wallet. No company holds it. No one can freeze it.")
+    st.subheader("Most private. Your wallet. No company holds it. ATM withdrawals. Debit card.")
     st.markdown("---")
 
     st.success("""
 **The key:** Your USDT never leaves your wallet.
 
-Unlike Bleap or RedotPay where a company holds your USDT — with Gnosis Safe, you spend directly from your own wallet.
+With Gnosis Safe + Gnosis Pay: you get a Visa debit card linked directly to your wallet.
+Spend anywhere Visa is accepted. Withdraw at ATMs. No company holding your money.
 
-No company = no one to freeze your money = most private.
+**No 1099. No IRS reporting. No company can freeze it.**
 """)
 
     st.markdown("---")
-    st.subheader("What Happens")
+    st.subheader("How It Works")
 
     st.code("""
-YOUR GNOSIS SAFE WALLET ($10M USDT)
+YOUR GNOSIS SAFE WALLET
         ↓
-Gnosis Pay creates a virtual Visa card linked to your wallet
+Gnosis Pay creates a virtual Visa debit card
         ↓
-You buy something for $500
-        ↓
-Gnosis Pay checks: is there enough in the Safe? Yes.
-        ↓
-3-minute window to cancel
+You buy something or withdraw from ATM
         ↓
 Transaction settles from YOUR wallet
         ↓
-Merchant gets USD
-YOU NEVER SOLD ANYTHING
+Merchant gets USD. ATM gives you cash.
+YOU NEVER SOLD ANYTHING.
 """, language=None)
 
     st.markdown("---")
@@ -438,7 +464,7 @@ YOU NEVER SOLD ANYTHING
         "Feature": ["Who holds your USDT?", "Can they freeze it?", "Do they have your ID?", "IRS reporting?", "Best for"],
         "Bleap": ["Bleap company", "Yes", "Yes (ID + selfie)", "Yes", "Easy spending"],
         "RedotPay": ["RedotPay company", "Yes", "Yes (ID + selfie)", "Yes", "High limits"],
-        "Gnosis Safe": ["YOU", "No — impossible", "No", "No", "Privacy first"],
+        "Gnosis Safe + Pay": ["YOU", "No — impossible", "No", "No", "Privacy first"],
     }))
 
     st.markdown("---")
@@ -449,8 +475,8 @@ YOU NEVER SOLD ANYTHING
         ("2", "Create a wallet", "Write down your seed phrase. Store it somewhere safe."),
         ("3", "Fund it with USDT", "Transfer USDT from wherever you have it"),
         ("4", "Connect to Gnosis Pay", "Inside the app, link your wallet to Gnosis Pay"),
-        ("5", "Get a virtual card", "Instant — works right away"),
-        ("6", "Start spending", "Tap to pay, online shopping, ATM"),
+        ("5", "Get a virtual debit card", "Instant — works right away"),
+        ("6", "Start spending / ATM withdrawals", "Tap to pay, online shopping, ATM"),
     ]
     for num, title, desc in steps:
         c1, c2 = st.columns([1, 5])
@@ -459,97 +485,246 @@ YOU NEVER SOLD ANYTHING
 
     st.warning("Limitation: Mostly EU/EEA right now. US rollout coming. Check if it works in your country.")
 
-# ─── PAGE 6: GIFT CARDS + TRAVEL ─────────────────────────────────────────────
-def page_gift():
-    st.title("🎁 Gift Cards + Flights — Resell for Cash")
-    st.subheader("Buy with USDT. Sell to people. Cash in your pocket.")
+# ─── PAGE 5B: DEBIT CARDS ──────────────────────────────────────────────────
+def page_cards():
+    st.title("💳 Crypto Debit Cards — Full Comparison")
+    st.subheader("Spend USDT anywhere Visa/Mastercard is accepted. ATM withdrawals. Compare all options.")
+    st.markdown("---")
+
+    st.success("""
+**The two types:**
+
+**Self-custody:** Your wallet, your money. No company holds it. (Gnosis Pay)
+**Custodial:** The company holds your USDT and converts it when you spend. (Bleap, RedotPay)
+
+**Both give you a physical or virtual card. Both work worldwide.**
+""")
+
+    st.markdown("---")
+    st.subheader("All Cards Compared")
+
+    render(pd.DataFrame({
+        "Card": ["Gnosis Pay", "Bleap Mastercard", "RedotPay", "COCA Card", "Binance Card"],
+        "Custody": ["YOU (self-custody)", "Bleap (custodial)", "RedotPay (custodial)", "COCA (custodial)", "Binance (custodial)"],
+        "Network": ["Visa", "Mastercard", "Visa", "Mastercard", "Visa"],
+        "Cashback": ["Up to 5% (GNO tokens)", "2% (USDC)", "3%", "Up to 5%", "Up to 5%"],
+        "FX Fee": ["0.5% + 1% weekend", "0%", "0%", "0%", "0%"],
+        "Monthly Fee": ["Free — €16.99 (Metal)", "Free", "Free", "Free", "Free"],
+        "ATM Limit": ["Tiered by plan", "$400/mo free", "$100K/day", "Tiered", "Tiered"],
+        "Spending Limit": ["$1M+/day (Metal)", "High", "$1M/day", "High", "Medium"],
+        "KYC": ["No (your Safe)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
+        "Countries": ["EU + LatAm (no US)", "Global", "Global", "Global", "Limited"],
+        "Best For": ["Privacy first", "Best overall fees", "High limits", "Multi-chain", "Binance users"],
+    }))
+
+    st.markdown("---")
+    st.subheader("Gnosis Pay — Most Private (Self-Custody)")
+
+    st.markdown("""
+**What it is:** Visa debit card linked directly to your Gnosis Safe wallet. Your USDT never leaves your wallet. You control it.
+
+**How it works:**
+```
+YOUR GNOSIS SAFE WALLET ($10M USDT)
+        ↓
+Gnosis Pay creates a virtual Visa card
+        ↓
+You buy something or withdraw from ATM
+        ↓
+Transaction settles from YOUR wallet
+        ↓
+YOU NEVER SOLD ANYTHING.
+No company holds your money. No one can freeze it.
+```
+
+**Countries available:**
+Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland, Argentina, Brazil, Colombia.
+
+**NOT available in the US yet.**
+""")
+
+    render(pd.DataFrame({
+        "Tier": ["Standard (Free)", "Premium (€7.99/mo)", "Metal (€16.99/mo)"],
+        "FX Fee": ["0.5% + 1% weekend markup", "Lower limits", "Higher limits"],
+        "ATM": ["Tiered by plan", "Higher", "Highest"],
+        "Cashback": ["Up to 4%", "Up to 4%", "Up to 5% (with GNO)"],
+        "Notes": ["Free to start", "More free ATM", "Best limits + most cashback"],
+    }))
+
+    st.markdown("---")
+    st.subheader("Bleap Mastercard — Best Overall Fees")
+
+    st.markdown("""
+**What it is:** Mastercard issued by Bleap. Zero FX fees. Zero monthly fees. 2% cashback in USDC. Free ATM withdrawals up to $400/month worldwide.
+
+**The numbers:**
+- Monthly fee: $0
+- FX fee: 0% (zero foreign transaction fees)
+- Cashback: 2% in USDC, auto-credited
+- ATM withdrawals: Free up to $400/month worldwide. Above that: only the ATM operator's fee.
+- Spending limit: High (verified users)
+- KYC: Government ID + selfie required
+
+**Why it's good:** Cheapest card for everyday spending. No FX markup. No monthly fee. 2% cashback adds up fast.
+
+**Countries:** Global (UK, Switzerland, EU, and more)
+""")
+
+    st.markdown("---")
+    st.subheader("RedotPay — Highest Limits")
+
+    st.markdown("""
+**What it is:** Visa card with massive limits. $100K per transaction. $1M daily spending. $200K monthly ATM withdrawals.
+
+**The numbers:**
+- Monthly fee: $0
+- FX fee: 0% (promoted as key feature)
+- Cashback: 3% (in their token or stablecoins)
+- ATM: $100,000/day per transaction
+- Monthly spending: $1,000,000
+- Monthly ATM: $200,000
+- KYC: Government ID + selfie required
+
+**Why it's good:** If you need to move serious money through a card, this is the one. Visa BIN means it works on Google Ads and Meta Ads.
+
+**Countries:** Global
+""")
+
+    st.markdown("---")
+    st.subheader("COCA Card — Multi-Chain")
+
+    st.markdown("""
+**What it is:** Mastercard via Wirex. No joining or monthly fees. Supports multiple stablecoins and chains.
+
+**The numbers:**
+- Monthly fee: $0
+- FX fee: 0%
+- Cashback: Up to 5% on certain spending
+- ATM: Tiered by account level
+- KYC: Government ID required
+
+**Why it's different:** Works across multiple chains and stablecoins. Good if you hold different assets.
+""")
+
+    st.markdown("---")
+    st.subheader("The Privacy Comparison")
+
+    render(pd.DataFrame({
+        "Card": ["Gnosis Pay", "Bleap", "RedotPay", "COCA"],
+        "Who Holds Your USDT": ["YOU", "Bleap company", "RedotPay company", "COCA"],
+        "Can They Freeze It": ["No — impossible", "Yes", "Yes", "Yes"],
+        "Do They Have Your ID": ["No", "Yes", "Yes", "Yes"],
+        "IRS Knows About You": ["No", "Yes (1099)", "Yes", "Yes"],
+        "Privacy Score": ["10/10", "4/10", "4/10", "4/10"],
+    }))
+
+    st.markdown("---")
+    st.subheader("Which Card When")
+
+    render(pd.DataFrame({
+        "Situation": ["Most private — no one holds your money", "Best for everyday spending (low fees)", "Need to spend $100K+ through a card", "Already use Binance ecosystem", "Need card that works on Meta/Google Ads"],
+        "Best Card": ["Gnosis Pay", "Bleap Mastercard", "RedotPay", "Binance Card", "RedotPay (US Visa BIN)"],
+    }))
+
+    st.warning("All custodial cards (Bleap, RedotPay, COCA) require government ID and selfie. Gnosis Pay is the only one that does NOT require ID — because your Safe IS the account.")
+
+# ─── PAGE 6: DEX + OFF-RAMP ─────────────────────────────────────────────────
+def page_dex():
+    st.title("💱 DEX → Off-Ramp — No-KYC Path to Cash")
+    st.subheader("Swap USDT to USDC. Off-ramp to cash. No ID at any step.")
     st.markdown("---")
 
     st.success("""
 **The model:**
-1. Buy gift cards with USDT (no ID needed)
-2. Sell them to people at 10-20% below face value
-3. Cash in your pocket
+- Deposit USDT into a DeFi protocol (no ID)
+- Borrow USDC (no ID, instant)
+- Send USDC to a no-KYC exchange
+- They wire or send cash to you
 
-**People buy gift cards** because they use them on betting sites or sell them for cash.
+**No crypto company knows who you are. Bank sees a wire from a payment processor.**
 """)
 
     st.markdown("---")
-    st.subheader("CoinGate — Email Only, No ID")
+    st.subheader("The Path")
 
-    st.markdown("""
-**CoinGate.com:**
-- Create account: email only
-- Buy: Amazon, Apple, Steam, PlayStation, Google Play, Netflix, Uber, Airbnb + 500+ more
-- Pay with: USDT directly
-- Delivery: instant code
-
-**No government ID. No selfie. No SSN. Just an email.**
-""")
+    st.code("""
+USDT
+  ↓ Aave V3 or Morpho Blue (no ID needed)
+Borrow USDC
+  ↓ SimpleSwap / Exolix (no ID needed)
+USDC → USD via swap or P2P
+  ↓
+Wire to your bank — OR —
+Cash in your hand
+""", language=None)
 
     st.markdown("---")
-    st.subheader("What Gamblers Pay Premium For")
+    st.subheader("Step by Step")
+
+    steps = [
+        ("1", "Open MetaMask or Trust Wallet", "Fund it with your USDT"),
+        ("2", "Go to Aave V3", "app.aave.com — deposit USDT, borrow USDC"),
+        ("3", "Borrow USDC", "No ID. Instant. Just pay the interest."),
+        ("4", "Send USDC to SimpleSwap", "simpleswap.io — no account needed"),
+        ("5", "Swap USDC to USD", "Choose: wire to bank, cash pickup, or P2P"),
+        ("6", "Get cash or wire", "Done. Bank sees: wire from SimpleSwap."),
+    ]
+    for num, title, desc in steps:
+        c1, c2 = st.columns([1, 5])
+        c1.markdown(f"**{num}**")
+        c2.markdown(f"**{title}** — {desc}")
+
+    st.markdown("---")
+    st.subheader("No-KYC Off-Ramps")
 
     render(pd.DataFrame({
-        "Gift Card": ["Steam Cards", "Amazon Cards", "Apple Cards", "Google Play", "PlayStation", "Netflix", "Uber / Lyft", "Airbnb"],
-        "Why They Want It": ["Skin gambling sites accept Steam", "Sell for cash / buy things", "Apps, subscriptions", "Apps / sell for cash", "Gaming purchases", "Subscriptions / sell", "Rides / sell for cash", "Travel / sell for cash"],
-        "Discount They Pay": ["10-20% below face", "10-15%", "10-15%", "10-15%", "10-15%", "5-10%", "10-15%", "10-15%"],
-        "How to Sell": ["Telegram groups", "CardTrader.com", "Reddit r/gcmarket", "Telegram", "Reddit", "Reddit", "Local cash", "Local cash"],
+        "Platform": ["SimpleSwap", "Exolix", "StealthEX", "ChangeNOW"],
+        "KYC": ["None", "None", "None", "None (under $1.5K)"],
+        "Output": ["Wire, cash, crypto", "Wire, cash, crypto", "Wire, crypto", "Wire, crypto"],
+        "Speed": ["Hours", "Fast", "Fast", "Fast"],
+        "Coins": ["300+", "200+", "800+", "200+"],
+        "Notes": ["Best overall no-KYC option", "Fast, no account", "Non-custodial", "Above $1.5K needs ID"],
     }))
 
     st.markdown("---")
-    st.subheader("Where to Sell Gift Cards for Cash")
-
-    render(pd.DataFrame({
-        "Place": ["CardTrader.com", "r/giftcardexchange (Reddit)", "Telegram gift card groups", "Local cash meet", "Facebook Marketplace", "eBay"],
-        "Speed": ["Fast (instant)", "Medium (negotiate)", "Fast", "Fast", "Medium", "Slow"],
-        "Discount You Get": ["10-20%", "10-20%", "10-20%", "10-15%", "10-15%", "5-15%"],
-        "Your ID": ["Account needed", "Account needed", "None", "None", "None", "Some"],
-    }))
-
-    st.markdown("---")
-    st.subheader("Flights and Hotels — Travala")
+    st.subheader("What the Bank Sees")
 
     st.markdown("""
-**Travala.com** — USDT accepted directly.
-- 2M+ hotels worldwide
-- 600+ airlines
-- No ID needed under $3,000
-- 0% fee for USDT payments
+**Normal wire from SimpleSwap.**
 
-**How to flip:**
-1. Buy a $2,000 hotel booking with USDT on Travala
-2. Sell the booking voucher to a traveler for $1,700 cash
-3. Profit: $300
+Bank sees: payment processor wire
+Bank does NOT see: crypto, USDT, blockchain, or any of your wallets
+
+**This is the cleanest privacy route.**
 """)
 
-    st.warning("Bitrefill was hacked March 2026. 18,500 customer records exposed. Use CoinGate instead.")
+    st.markdown("---")
+    st.warning("Watch for DEX slippage on large trades. Use Morpho Blue for better rates than Aave. Always test with a small amount first.")
 
-# ─── PAGE 7: PRIVACY STACK ───────────────────────────────────────────────────
+# ─── PAGE 7: PRIVACY ─────────────────────────────────────────────────────────
 def page_privacy():
     st.title("🛡️ Privacy Stack — Ranked")
-    st.subheader("Most private → Least private. Use the top ones first.")
+    st.subheader("Most private → Least private. No government ID where possible.")
     st.markdown("---")
 
     render(pd.DataFrame({
         "Rank": ["1", "2", "3", "4", "5", "6", "7", "8"],
-        "Method": ["Local P2P (in person)", "Gnosis Safe + Gnosis Pay", "DEX to BTC to cash meet", "Gift cards to resell", "Flights/hotels to resell", "P2P on platform", "Loan (debt)", "Crypto debit cards"],
-        "ID Needed": ["None", "None", "None", "Email only", "No (<$3K)", "None", "Yes (loan company)", "ID + selfie"],
-        "Scale": ["Small", "Large", "Large", "Large", "Medium", "Unlimited", "Large", "Large"],
-        "Risk": ["Trust-based", "None", "DEX slippage", "Gift card resale", "Booking resale", "AML watch", "Credit report", "Company has your ID"],
+        "Method": ["Local meet (in person)", "Goods arbitrage", "Gnosis Safe + Pay", "P2P platform", "Gift cards to resell", "Travel to resell", "DEX to off-ramp", "Loan (debt)"],
+        "ID Needed": ["None", "None", "None", "None", "Email only", "No (<$3K)", "None", "Yes (loan company)"],
+        "Scale": ["Small", "Large", "Large", "Unlimited", "Large", "Medium", "Large", "Large"],
+        "Risk": ["Trust-based", "None", "None", "AML watch at scale", "Gift card resale", "Booking resale", "None", "Credit report"],
     }))
 
     st.markdown("---")
-    st.subheader("The Privacy Rules")
+    st.subheader("The Rules")
 
     rules = [
-        ("Cash is king", "Physical cash is untraceable. In-person P2P is the most private."),
+        ("Cash is king", "Physical cash is untraceable. In-person trades are the most private."),
         ("Your wallet, your rules", "Gnosis Safe = no company holds your money. No one can freeze it."),
-        ("Under $10K cash", "Bank SARs trigger at $10,000+ in one cash deposit. Keep trades smaller."),
-        ("Under $1K on-chain", "FATF Travel Rule means data travels with transactions over $1,000."),
-        ("One wallet per purpose", "Don't mix wallets. Fresh wallet for large transfers."),
         ("Debt is invisible", "A loan shows on your credit report but the bank has no idea it's crypto-backed."),
-        ("Gift cards are cash proxies", "Buy with USDT, sell for cash. Gamblers pay premium for convenience."),
+        ("Under $10K cash", "Bank SARs trigger at $10,000+ in one cash deposit. Keep trades smaller."),
+        ("One wallet per purpose", "Don't mix wallets. Fresh wallet for large transfers."),
+        ("On-chain transfers", "Keep large transfers under $1,000 or use fresh wallets."),
     ]
     for title, desc in rules:
         st.markdown(f"**{title}:** {desc}")
@@ -558,25 +733,101 @@ def page_privacy():
     st.subheader("What Triggers Attention")
 
     render(pd.DataFrame({
-        "Thing": ["$10K+ cash deposit", "$1K+ on-chain transfer", "Exchanging USDT for BTC", "Large P2P volume", "New bank account receiving wire"],
-        "Triggers": ["Bank files SAR automatically", "Travel Rule kicks in, ID required", "Exchange may require KYC", "Platform monitors for AML", "Bank may ask questions"],
-        "How to Avoid": ["Keep trades under $10K", "Break into smaller chunks", "Use DEX (no ID)", "Get FinCEN MSB + MTL", "Use an existing account"],
+        "Thing": ["$10K+ cash deposit", "Large P2P volume at scale", "New bank account receiving wire", "Structuring (splitting deposits)"],
+        "What Happens": ["Bank files SAR automatically", "Platform monitors for AML", "Bank may ask questions", "Looks like hiding — felony"],
+        "How to Avoid": ["Keep trades under $10K", "Get FinCEN MSB + MTL", "Use an existing account", "Deposit larger amounts or use wire"],
     }))
 
-# ─── PAGE 8: FRAUD CASES ────────────────────────────────────────────────────
+# ─── PAGE 8: BANKING ──────────────────────────────────────────────────────────
+def page_banking():
+    st.title("🏦 Banking — Where to Put the Cash")
+    st.subheader("Options from US banks to offshore. Which one fits your situation.")
+    st.markdown("---")
+
+    st.success("""
+**The key insight:** Banks see DEBT, not the collateral.
+
+A wire from Ledn = "personal loan." Banks see thousands of these per day.
+A wire from Panama = normal USD from abroad. Completely normal in dollarized countries.
+A wire from FV Bank = a US bank. Not a crypto company.
+
+**The source of the wire matters less than you think.**
+""")
+
+    st.markdown("---")
+    st.subheader("US Banks — Loan Route")
+
+    render(pd.DataFrame({
+        "Bank": ["FV Bank (Puerto Rico)", "Cross River Bank", "Ledn wire to your existing bank"],
+        "What It Is": ["US bank, accepts USDC directly", "Tech bank behind Coinbase", "Wire from Ledn to your account"],
+        "KYC": ["Yes", "Yes", "Yes (at Ledn only)"],
+        "Output": ["USD wire, USDC deposit", "Corporate accounts, wire transfers", "USD wire"],
+        "Best For": ["Direct stablecoin bridge", "Crypto businesses", "Simplest US option"],
+    }))
+
+    st.markdown("---")
+    st.subheader("Offshore — Dollarized Countries")
+
+    st.markdown("""
+**Best for:** USD wires are completely normal. Banks don't bat an eye.
+
+**Panama** ⭐ — Dollarized. USD is the currency. Large USD wires are routine.
+**UAE / Dubai** — Growing crypto hub. No income tax.
+**Cayman Islands** — Corporate accounts. Major money jurisdiction.
+**Hong Kong** — USD-pegged. Major financial center.
+""")
+
+    render(pd.DataFrame({
+        "Country": ["Panama", "UAE / Dubai", "Cayman Islands", "Hong Kong"],
+        "Currency": ["USD", ["USD", "AED"], "USD", "USD / HKD"],
+        "Tax": ["None on foreign income", "None", "None", "Low"],
+        "Crypto Friendly": ["Some banks", "Growing", "Yes (corporate)", "Some banks"],
+        "What You Need": ["Residency or company", "Residency or company", "Company setup", "Company or residency"],
+        "KYC": ["Basic", "Basic to moderate", "Moderate", "Moderate"],
+    }))
+
+    st.markdown("---")
+    st.subheader("Foreign Bank Flow")
+
+    st.code("""
+USDT
+  ↓
+Swap to BTC/ETH (one taxable event)
+  ↓
+Use BTC as collateral at loan platform
+  ↓
+They wire USD to your foreign bank (Panama / UAE / etc.)
+  ↓
+Foreign bank sees: USD wire, debt on the books
+No US IRS reporting. No US questions.
+""", language=None)
+
+    st.markdown("---")
+    st.subheader("Banks That Actually Work")
+
+    render(pd.DataFrame({
+        "Bank": ["BAC (Panama)", "Global Bank (Panama)", "Cross River (US)", "FV Bank (Puerto Rico)"],
+        "Type": ["Offshore USD", "Offshore USD", "US Tech Bank", "US Digital Bank"],
+        "Crypto Wire": ["Yes", "Yes", "Yes", "Yes (USDC direct)"],
+        "KYC": ["Yes", "Yes", "Yes", "Yes"],
+        "Notes": ["No questions on USD wires", "USD normal there", "Works with fintech partners", "Only US bank with USDC deposit"],
+    }))
+
+    st.warning("Mercury Bank is closed (2024). Big US banks (Chase, BofA) block crypto exchanges inconsistently. Not reliable.")
+
+# ─── PAGE 9: FRAUD CASES ────────────────────────────────────────────────────
 def page_fraud():
     st.title("⚠️ How They Got Caught")
     st.subheader("Real cases. Learn what NOT to do.")
     st.markdown("---")
 
     cases = [
-        ("Crypto Dispensers — Nov 2025", "$10M alleged money laundering", "Ran cash-to-BTC ATMs. Banks flagged cash deposits. FBI traced money through ATMs.", "Cash deposits trigger SARs. Every ATM transaction is on-chain."),
-        ("Paxful — Dec 2025", "$7.5M fine + platform shut down", "One of world's largest P2P platforms. No MTL licenses. No KYC/AML. Knew scammers used platform.", "You're responsible for what happens on your platform. Get licensed."),
-        ("Samourai Wallet — 2025", "CEO: 60 months prison", "Privacy mixing wallet. Explicit money laundering intent.", "Privacy tools = treated as intent to hide money."),
-        ("Ronald Spektor — Dec 2025", "$16M fraud, Brooklyn DA indictment", "Impersonated Coinbase support. Got victims to send crypto.", "Scamming = prison. Ignoring scams on your platform = also prison."),
-        ("Tether Freezes — 2025-2026", "$700M+ frozen", "Tether froze USDT connected to fraud. DOJ request.", "Tether can freeze your USDT instantly. No warning."),
-        ("BTC ATM Fraud — 2025", "$333M lost, FBI report", "45K BTC ATMs in US. Scammers used them to receive payments.", "Bank accounts from ATM deposits = flagged immediately."),
-        ("Operation Atlantic — May 2026", "276 arrests, $701M seized", "US + China + Canada coordinated crackdown.", "International law enforcement is highly coordinated now."),
+        ("Crypto Dispensers — Nov 2025", "$10M alleged money laundering", "Ran cash-to-BTC ATMs. Banks flagged cash deposits. FBI traced through ATMs.", "Cash deposits trigger SARs. Every ATM transaction is on-chain."),
+        ("Paxful — Dec 2025", "$7.5M fine + platform shut down", "No MTL licenses. No KYC/AML. Platform used by scammers.", "Get licensed before doing serious volume."),
+        ("Samourai Wallet — 2025", "CEO: 60 months prison", "Privacy mixing wallet. Explicit money laundering intent.", "Privacy tools treated as intent to hide money."),
+        ("Ronald Spektor — Dec 2025", "$16M fraud, Brooklyn DA", "Impersonated Coinbase support. Got victims to send crypto.", "Scamming = prison."),
+        ("Tether Freezes — 2025-2026", "$700M+ frozen", "Tether froze USDT connected to fraud. DOJ request.", "Tether can freeze your USDT instantly."),
+        ("Operation Atlantic — May 2026", "276 arrests, $701M seized", "US + China + Canada coordinated crackdown.", "Law enforcement is highly coordinated."),
     ]
 
     for name, amount, what, lesson in cases:
@@ -585,25 +836,24 @@ def page_fraud():
             st.error(f"**Lesson:** {lesson}")
 
     st.markdown("---")
-    st.subheader("How They ALL Got Caught")
+    st.subheader("How They All Got Caught")
 
     render(pd.DataFrame({
         "Method": ["Blockchain tracing", "Bank SAR filings", "Exchange subpoenas", "Tether freezing", "Victim reports to FBI"],
-        "Used In": ["Every case", "ATM fraud, cash deposits", "Paxful, exchanges", "All Tether cases", "Every scam case"],
-        "What It Is": ["Chainalysis/TRM trace wallet history", "Bank reports suspicious activity to FinCEN", "Government subpoena: exchange gives up KYC", "Tether freezes on DOJ/OFAC request", "FBI IC3 complaints start investigations"],
+        "What It Is": ["Chainalysis/TRM trace wallet history", "Bank reports suspicious activity to FinCEN", "Government subpoena → exchange gives up KYC", "Tether freezes on DOJ/OFAC request", "FBI IC3 complaints start investigations"],
     }))
 
     st.markdown("---")
     st.subheader("How to NOT Be Them")
 
     render(pd.DataFrame({
-        "Do": ["Get FinCEN MSB if doing serious volume", "Basic KYC on platform users", "File SARs when something looks wrong", "Do not touch funds you suspect are stolen", "Keep records of all trades", "Do not mix wallets"],
-        "Don't": ["Run P2P at scale without MTL", "Ignore red flag transactions", "Accept large cash without questions", "Use privacy mixers", "Skip compliance entirely", "Assume offshore = safe"],
+        "Do": ["Get FinCEN MSB if doing serious volume", "Basic KYC on platform users at scale", "File SARs when something looks wrong", "Keep records of all trades"],
+        "Don't": ["Run P2P at scale without MTL", "Ignore red flag transactions", "Use privacy mixers or tumblers", "Skip compliance entirely"],
     }))
 
-    st.error("Bottom line: At $10M in volume, you are visible. Get some basic compliance. It's not that hard and it keeps you free.")
+    st.error("At $10M in volume, you are visible. Get some basic compliance. It's not that hard and it keeps you free.")
 
-# ─── PAGE 9: APPS ──────────────────────────────────────────────────────────────
+# ─── PAGE 10: APPS ───────────────────────────────────────────────────────────
 def page_apps():
     st.title("📱 The Apps — All in One Place")
     st.subheader("What to download. What to use. No government ID where possible.")
@@ -613,7 +863,7 @@ def page_apps():
 
     render(pd.DataFrame({
         "App": ["Gnosis Safe", "CoinGate", "MetaMask", "Trust Wallet", "Travala", "Telegram", "SimpleSwap", "Exolix"],
-        "What It's For": ["Spend USDT directly, most private", "Gift cards with email only", "DEX swaps, wallet", "Backup wallet", "Flights + hotels with USDT", "P2P matching with gamblers", "No-KYC USDC to wire/cash", "No-KYC USDC to wire/cash"],
+        "What It's For": ["Spend USDT directly, ATM, debit card", "Gift cards with email only", "DEX swaps", "Backup wallet", "Flights + hotels with USDT", "P2P matching", "No-KYC USDC to wire/cash", "No-KYC USDC to wire/cash"],
         "ID Needed": ["None", "Email only", "None", "None", "No (<$3K)", "None", "None", "None"],
         "Website": ["safe.global", "coingate.com", "metamask.io", "trustwallet.com", "travala.com", "telegram.org", "simpleswap.io", "exolix.com"],
     }))
@@ -634,7 +884,7 @@ def page_apps():
 
     render(pd.DataFrame({
         "App": ["Bleap", "RedotPay", "NoOnes", "LocalCoinSwap"],
-        "What It's For": ["Spend USDT anywhere, 2% cashback", "High limits, US Visa BIN", "P2P platform", "Decentralized P2P, escrow built-in"],
+        "What It's For": ["Spend USDT anywhere, debit card", "High limits, US Visa BIN", "P2P platform", "Decentralized P2P, escrow built-in"],
         "ID Needed": ["Gov ID + selfie", "Gov ID + selfie", "Account needed", "Account needed"],
         "Website": ["bleap.finance", "redotpay.com", "noones.com", "localcoinswap.com"],
     }))
@@ -647,7 +897,7 @@ def page_apps():
         st.markdown("""
         **Morning:**
         - Check Telegram P2P groups
-        - Match 5-10 P2P trades
+        - Match 5-10 trades
         - Confirm cash received
         - Release USDT
         """)
@@ -655,15 +905,14 @@ def page_apps():
         st.markdown("""
         **Afternoon:**
         - Buy gift cards on CoinGate
-        - Post on CardTrader / Telegram
-        - Sell to buyers
+        - Post for sale
         - Collect cash
         """)
     with c3:
         st.markdown("""
         **Ongoing:**
-        - Gnosis Safe for spending
-        - Build repeat buyer relationships
+        - Gnosis Safe for spending / ATM
+        - Build repeat relationships
         - Scale P2P volume
         - Track all trades
         """)
@@ -671,14 +920,17 @@ def page_apps():
 # ─── APP SHELL ────────────────────────────────────────────────────────────────
 PAGES = {
     "🏠 Home": page_home,
-    "🤝 P2P Gamblers": page_p2p,
+    "🤝 P2P": page_p2p,
     "💳 Loan": page_loans,
-    "💵 Cash Only": page_cash,
+    "💵 Goods Arbitrage": page_goods,
     "🔐 Gnosis Safe": page_safe,
-    "🎁 Gift Cards + Travel": page_gift,
-    "🛡️ Privacy Stack": page_privacy,
+    "💳 Debit Cards": page_cards,
+    "💱 DEX + Off-Ramp": page_dex,
+    "🛡️ Privacy": page_privacy,
+    "🏦 Banking": page_banking,
     "⚠️ Fraud Cases": page_fraud,
     "📱 All Apps": page_apps,
+    "⚡ Shortcuts": page_shortcuts,
 }
 
 st.sidebar.title("💸 USDT → Cash")
