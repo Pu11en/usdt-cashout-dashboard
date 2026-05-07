@@ -3,147 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Notes — USDT → Cash (Short)</title>
+<title>Video Notes — USDT → Cash</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0a0a0f; color: #f0f0f0; font-family: 'Segoe UI', sans-serif; padding: 40px 20px; }
-  .container { max-width: 700px; margin: 0 auto; }
-  h1 { font-size: 28px; color: #00e5ff; text-align: center; margin-bottom: 8px; }
-  .subtitle { text-align: center; color: #888; font-size: 14px; margin-bottom: 40px; }
-  .meta { background: #ff6b35; color: #0a0a0f; padding: 12px 20px; border-radius: 10px; text-align: center; font-size: 14px; font-weight: 600; margin-bottom: 30px; }
-  .total { background: #1a1a2e; border-radius: 12px; padding: 20px; margin-bottom: 30px; text-align: center; }
-  .total span { color: #00e5ff; font-size: 24px; font-weight: 700; }
-  .scene { background: #13131f; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 1px solid #1e1e30; }
-  .scene .head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-  .scene .tag { background: #ff6b35; color: #0a0a0f; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
-  .scene .dur { background: #1e1e30; color: #888; font-size: 11px; padding: 3px 8px; border-radius: 20px; margin-left: auto; }
-  .scene .name { font-size: 18px; color: #ff6b35; }
-  .lines { list-style: none; }
-  .lines li { padding: 8px 0; border-bottom: 1px solid #1a1a28; font-size: 15px; line-height: 1.6; }
-  .lines li:last-child { border: none; }
-  .hi { color: #00e5ff; font-weight: 600; }
-  .apps { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
-  .app { background: #1a1a28; padding: 10px 14px; border-radius: 8px; font-size: 13px; }
-  .app .n { color: #00e5ff; font-weight: 600; }
+  body { background: #0a0a0f; color: #e0e0e8; font-family: 'Segoe UI', sans-serif; padding: 40px 20px; }
+  .container { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 26px; color: #00e5ff; text-align: center; margin-bottom: 6px; }
+  .sub { text-align: center; color: #777; font-size: 13px; margin-bottom: 32px; }
+  .block { background: #12121f; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 1px solid #1c1c30; }
+  .block .tag { display: inline-block; background: #ff6b35; color: #0a0a0f; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 16px; margin-right: 8px; }
+  .block .title { font-size: 18px; color: #ff6b35; font-weight: 600; margin: 10px 0; }
+  .block .time { color: #555; font-size: 12px; margin-bottom: 14px; }
+  .talking { margin-top: 14px; padding-top: 14px; border-top: 1px solid #1c1c30; }
+  .talking .label { color: #00e5ff; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+  .talking li { color: #ccc; font-size: 14px; line-height: 1.7; margin-left: 18px; }
+  .facts { margin-bottom: 12px; }
+  .facts .label { color: #888; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+  .fact { display: flex; gap: 8px; margin-bottom: 6px; font-size: 13px; color: #999; }
+  .fact .key { color: #00e5ff; min-width: 100px; }
+  .warn { background: #2a1a1a; border: 1px solid #3a2020; padding: 6px 12px; border-radius: 6px; font-size: 12px; color: #ff6666; margin-top: 8px; }
+  .ok { background: #1a2a1a; border: 1px solid #203a20; padding: 6px 12px; border-radius: 6px; font-size: 12px; color: #66ff66; margin-top: 8px; }
 </style>
 </head>
 <body>
 <div class="container">
 
-<div class="meta">~2.5 minutes · No dollar amounts · No investing · Privacy first</div>
-
-<h1>💸 VIDEO NOTES</h1>
-<p class="subtitle">USDT → Cash — Short Script</p>
-
-<div class="total">Approx. runtime: <span>~2.5 minutes</span></div>
-
-<!-- INTRO -->
-<div class="scene">
-<div class="head">
-  <span class="tag">INTRO</span>
-  <span class="dur">10 sec</span>
-</div>
-<div class="name">Hook</div>
-<ul class="lines">
-  <li>You have USDT. You need cash. <span class="hi">No government ID.</span></li>
-  <li>Here are the ways.</li>
-</ul>
-</div>
+<h1>💸 USDT → Cash</h1>
+<p class="sub">Speaker Notes — Facts to reference on screen while recording</p>
 
 <!-- METHOD 1 -->
-<div class="scene">
-<div class="head">
-  <span class="tag">01</span>
-  <span class="dur">30 sec</span>
-</div>
-<div class="name">P2P — Cash People Want USDT</div>
-<ul class="lines">
-  <li>People have cash. They want USDT instead of cash.</li>
-  <li>You match them. <span class="hi">Take 2-5% on every trade.</span></li>
-  <li>Someone has $10K in cash. They want $10K in USDT. You find the match. You take the fee.</li>
-  <li>That's it. That's the whole business.</li>
-  <li>Telegram, LocalCoinSwap, NoOnes. <span class="hi">No ID needed on your end.</span></li>
-</ul>
+<div class="block">
+  <span class="tag">01</span> <span class="title">P2P — Connect Cash People to USDT People</span>
+  <div class="time">~45 sec</div>
+
+  <div class="facts">
+    <div class="label">Key Facts</div>
+    <div class="fact"><span class="key">Model</span> Someone has cash wants USDT. Someone has USDT wants cash. You match. Take 2-5%.</div>
+    <div class="fact"><span class="key">Platforms</span> Telegram, LocalCoinSwap.com, NoOnes.com</div>
+    <div class="fact"><span class="key">Your ID</span> None needed on your end</div>
+    <div class="fact"><span class="key">Scale</span> Start Telegram free. Build own platform later.</div>
+    <div class="fact"><span class="key">At scale</span> FinCEN MSB + Wyoming MTL licenses</div>
+  </div>
+
+  <div class="talking">
+    <div class="label">Talking Points</div>
+    <ul>
+      <li>This is a real business — not a one-time thing</li>
+      <li>People want USDT instead of cash. Reason doesn't matter. Your business: connect them.</li>
+      <li>We've done this before. Small scale. This is stepping it up.</li>
+      <li>Platform scales. Start Telegram. Build a site. Get licensed.</li>
+      <li>Paxful got shut down Dec 2025. $7.5M fine. No MTL. Lesson: get licensed.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- METHOD 2 -->
-<div class="scene">
-<div class="head">
-  <span class="tag">02</span>
-  <span class="dur">30 sec</span>
-</div>
-<div class="name">Collateral Becomes Debt</div>
-<ul class="lines">
-  <li>Put up your USDT as collateral. Get a loan. Cash in your bank.</li>
-  <li>The bank sees: <span class="hi">personal loan.</span> The IRS sees: debt.</li>
-  <li><span class="hi">Not income. Not taxable.</span></li>
-  <li>Use Ledn or Unchained. Put up BTC or ETH. They wire USD. Done.</li>
-  <li>Bank sees nothing but a loan.</li>
-</ul>
+<div class="block">
+  <span class="tag">02</span> <span class="title">Collateral Loan — USDT Becomes Debt</span>
+  <div class="time">~60 sec</div>
+
+  <div class="facts">
+    <div class="label">Key Facts</div>
+    <div class="fact"><span class="key">Core insight</span> A loan is DEBT, not income. IRS does not tax loans.</div>
+    <div class="fact"><span class="key">Bank sees</span> "Personal loan from Ledn Capital." Does NOT see USDT.</div>
+    <div class="fact"><span class="key">IRS sees</span> Debt. Not income. Not taxable. No capital gains.</div>
+    <div class="fact"><span class="key">Flow</span> Swap USDT → BTC (one tax event). BTC as collateral at Ledn. Wire to bank.</div>
+    <div class="fact"><span class="key">Platforms</span> Ledn (9.99-11.49% APR), Unchained (9.5%+), Lava (5-7.5%)</div>
+    <div class="fact"><span class="key">Loan-to-value</span> 50% standard on all platforms</div>
+    <div class="fact"><span class="key">Wires USD</span> All platforms wire USD to your bank account</div>
+  </div>
+
+  <div class="talking">
+    <div class="label">Talking Points</div>
+    <ul>
+      <li>Swap USDT to BTC first — one taxable event. Pay the small tax once. Done.</li>
+      <li>After the wire hits: you have cash in a normal bank account</li>
+      <li>Bank sees nothing but a personal loan. That's all they know.</li>
+      <li>Ask for a high-limit debit card from YOUR bank. You have a big balance — it's expected.</li>
+      <li>Now you're spending with a normal bank debit card. No crypto card needed.</li>
+      <li>Daily $10-50K spending = normal for someone with a $5M balance.</li>
+      <li>This is the cleanest path. Bank debit card. No crypto company holding your money.</li>
+    </ul>
+  </div>
+  <div class="ok">✅ All platforms confirmed. Ledn rates verified. Unchained 9.5% starting.</div>
 </div>
 
 <!-- METHOD 3 -->
-<div class="scene">
-<div class="head">
-  <span class="tag">03</span>
-  <span class="dur">30 sec</span>
-</div>
-<div class="name">Buy Things, Sell for Cash</div>
-<ul class="lines">
-  <li>Buy gift cards with USDT. CoinGate — email only. No ID.</li>
-  <li>Turn around and sell them for 85 cents on the dollar.</li>
-  <li>Buy a car with USDT. Sell it for cash. One flip = thousands in cash.</li>
-  <li>Travel bookings, flights, hotels — same thing. Buy with USDT. Flip for cash.</li>
-  <li><span class="hi">No bank. No ID. Cash in your pocket.</span></li>
-</ul>
+<div class="block">
+  <span class="tag">03</span> <span class="title">Goods Arbitrage — Buy With USDT, Sell for Cash</span>
+  <div class="time">~40 sec</div>
+
+  <div class="facts">
+    <div class="label">Key Facts</div>
+    <div class="fact"><span class="key">Gift Cards</span> CoinGate.com — email to start. Buy Steam, Amazon, Apple with USDT.</div>
+    <div class="fact"><span class="key">Resell rate</span> Sell for 80-90 cents on the dollar. Cash in hand.</div>
+    <div class="fact"><span class="key">Travel</span> Travala.com — flights + hotels. USDT accepted directly.</div>
+    <div class="fact"><span class="key">2M+ hotels</span> 600+ airlines. Book with USDT. Sell the booking for cash.</div>
+    <div class="fact"><span class="key">Cars</span> Buy with USDT. List for cash below market. One flip = thousands.</div>
+    <div class="fact"><span class="key">CoinGate KYC</span> Email only for small purchases. KYC required for larger transactions.</div>
+    <div class="fact"><span class="key">Marketplaces</span> CardTrader.com, Reddit, Telegram for resale</div>
+  </div>
+
+  <div class="talking">
+    <div class="label">Talking Points</div>
+    <ul>
+      <li>Buy gift cards with USDT. Turn around and sell them for cash.</li>
+      <li>Gamblers love Steam cards. Gamers want them. Amazon cards sell instantly.</li>
+      <li>Scale: 10 × $1,000 Steam cards = $8,500 cash daily. $45K/month.</li>
+      <li>Travel: book hotels and flights. Flip the booking. Traveler saves money. You get cash.</li>
+      <li>Car flip: buy car with USDT → sell for cash. One transaction cleans a big chunk.</li>
+    </ul>
+  </div>
+  <div class="warn">⚠️ Bitrefill hacked March 2026 — 18,500 records. Use CoinGate instead.</div>
 </div>
 
 <!-- METHOD 4 -->
-<div class="scene">
-<div class="head">
-  <span class="tag">04</span>
-  <span class="dur">20 sec</span>
+<div class="block">
+  <span class="tag">04</span> <span class="title">Gnosis Safe — Self-Custody Debit Card</span>
+  <div class="time">~30 sec</div>
+
+  <div class="facts">
+    <div class="label">Key Facts</div>
+    <div class="fact"><span class="key">Custody</span> YOU hold your USDT. No company holds it. No one can freeze it.</div>
+    <div class="fact"><span class="key">Card</span> Gnosis Pay Visa debit card linked to YOUR wallet, not a company wallet.</div>
+    <div class="fact"><span class="key">ATM</span> Withdraw cash from ATMs worldwide. Visa accepted everywhere.</div>
+    <div class="fact"><span class="key">No 1099</span> No IRS reporting from the card. Self-custody = no third-party reporting.</div>
+    <div class="fact"><span class="key">Tiers</span> Standard = free. Premium = €7.99/mo. Metal = €16.99/mo (best limits).</div>
+    <div class="fact"><span class="key">Cashback</span> Up to 5% in GNO tokens depending on tier.</div>
+  </div>
+
+  <div class="talking">
+    <div class="label">Talking Points</div>
+    <ul>
+      <li>This is the most private card option. Your wallet. Your control.</li>
+      <li>Spend anywhere Visa is accepted. Online, in-store, Apple Pay, Google Pay.</li>
+      <li>ATM withdrawals give you physical cash. No bank account needed.</li>
+      <li>No company can freeze your money. True self-custody.</li>
+    </ul>
+  </div>
+  <div class="warn">⚠️ Available in EU + Latin America only. NOT in the US yet.</div>
 </div>
-<div class="name">Gnosis Safe — Most Private</div>
-<ul class="lines">
-  <li>Gnosis Safe + Gnosis Pay. <span class="hi">Your wallet. No company holds it.</span></li>
-  <li>You get a Visa debit card. Spend anywhere. Withdraw from ATM. Cash comes out.</li>
-  <li>No 1099. No IRS reporting. No one can freeze it.</li>
-  <li><span class="hi">Most private option.</span></li>
-</ul>
+
+<!-- METHOD 5 -->
+<div class="block">
+  <span class="tag">05</span> <span class="title">DEX → Off-Ramp — No-ID Path to Cash</span>
+  <div class="time">~30 sec</div>
+
+  <div class="facts">
+    <div class="label">Key Facts</div>
+    <div class="fact"><span class="key">DeFi</span> Aave V3 or Morpho Blue — deposit USDT, borrow USDC. No ID needed.</div>
+    <div class="fact"><span class="key">Aave confirmed</span> USDT IS accepted as collateral. 80%+ stablecoin share on Ethereum.</div>
+    <div class="fact"><span class="key">Off-ramp</span> SimpleSwap, Exolix — no-KYC by default. Wire to bank or cash.</div>
+    <div class="fact"><span class="key">Caveat</span> No-KYC for routine swaps. May request KYC if transaction flagged.</div>
+    <div class="fact"><span class="key">Bank sees</span> Wire from SimpleSwap. Looks like a payment processor. No crypto label.</div>
+    <div class="fact"><span class="key">Morpho Blue</span> Better rates than Aave for some assets.</div>
+  </div>
+
+  <div class="talking">
+    <div class="label">Talking Points</div>
+    <ul>
+      <li>DeFi protocol — no company, no KYC, just a smart contract.</li>
+      <li>Deposit USDT, borrow USDC. All automated. No human reviews it.</li>
+      <li>Send USDC to SimpleSwap. They send you a wire. Bank sees a payment processor.</li>
+      <li>This is the most private path. No ID at any step.</li>
+      <li>Do a small test first. DEX slippage is real on large trades.</li>
+    </ul>
+  </div>
+  <div class="warn">⚠️ SimpleSwap CAN request KYC if a transaction is flagged. Test small first.</div>
+</div>
+
+<!-- WHAT'S NOT AVAILABLE -->
+<div class="block">
+  <span class="tag">NOTE</span> <span class="title">What's NOT Available in 2026</span>
+
+  <div class="facts">
+    <div class="label">Verified</div>
+    <div class="fact"><span class="key">SolCard no-KYC</span> Removed April 2026. No crypto debit card exists without KYC now.</div>
+    <div class="fact"><span class="key">No-KYC cards</span> Bleap, RedotPay, COCA — all require government ID + selfie.</div>
+    <div class="fact"><span class="key">Mixers/Tumblers</span> Tornado Cash sanctioned. Using mixers = legally risky.</div>
+  </div>
+
+  <div class="talking">
+    <div class="label">Talking Points</div>
+    <ul>
+      <li>We researched every angle. There is NO crypto debit card without KYC in 2026.</li>
+      <li>SolCard was the last one. They removed it last month.</li>
+      <li>If someone tells you otherwise — they're wrong or lying.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- APPS -->
-<div class="scene">
-<div class="head">
-  <span class="tag">APPS</span>
-  <span class="dur">15 sec</span>
-</div>
-<div class="name">Download These</div>
-<div class="apps">
-  <div class="app"><span class="n">Gnosis Safe</span> — safe.global</div>
-  <div class="app"><span class="n">CoinGate</span> — coingate.com</div>
-  <div class="app"><span class="n">Travala</span> — travala.com</div>
-  <div class="app"><span class="n">SimpleSwap</span> — simpleswap.io</div>
-  <div class="app"><span class="n">MetaMask</span> — metamask.io</div>
-  <div class="app"><span class="n">Telegram</span> — telegram.org</div>
-  <div class="app"><span class="n">Ledn</span> — ledn.io</div>
-  <div class="app"><span class="n">LocalCoinSwap</span> — localcoinswap.com</div>
-</div>
-</div>
+<div class="block">
+  <span class="tag">APPS</span> <span class="title">Download These</span>
 
-<!-- OUTRO -->
-<div class="scene">
-<div class="head">
-  <span class="tag">OUTRO</span>
-  <span class="dur">10 sec</span>
-</div>
-<div class="name">Close</div>
-<ul class="lines">
-  <li>Four methods. <span class="hi">P2P, collateral loan, buy-and-sell, Gnosis Safe.</span></li>
-  <li>Cash in your pocket. No government ID. No bank needed.</li>
-  <li>Start small. Scale up.</li>
-</ul>
+  <div class="facts">
+    <div class="label">Private (no ID)</div>
+    <div class="fact"><span class="key">Gnosis Safe</span> safe.global — self-custody wallet + Visa card</div>
+    <div class="fact"><span class="key">CoinGate</span> coingate.com — gift cards (email for small purchases)</div>
+    <div class="fact"><span class="key">MetaMask</span> metamask.io — DEX swaps</div>
+    <div class="fact"><span class="key">Travala</span> travala.com — flights + hotels with USDT</div>
+    <div class="fact"><span class="key">SimpleSwap</span> simpleswap.io — no-KYC off-ramp</div>
+    <div class="fact"><span class="key">Telegram</span> telegram.org — P2P matching</div>
+  </div>
+
+  <div class="facts" style="margin-top:14px;">
+    <div class="label">Loan platforms (KYC required)</div>
+    <div class="fact"><span class="key">Ledn</span> ledn.io — 9.99-11.49% APR, BTC/ETH</div>
+    <div class="fact"><span class="key">Unchained</span> unchainedcapital.com — 9.5% starting, BTC</div>
+    <div class="fact"><span class="key">Lava</span> lava.finance — 5-7.5% starting, BTC</div>
+  </div>
+
+  <div class="facts" style="margin-top:14px;">
+    <div class="label">Cards (KYC required)</div>
+    <div class="fact"><span class="key">Bleap</span> bleap.finance — 2% cashback, 0% FX, $400/mo free ATM</div>
+    <div class="fact"><span class="key">RedotPay</span> redotpay.com — $1M/day spending, $100K/tx</div>
+  </div>
+
+  <div class="facts" style="margin-top:14px;">
+    <div class="label">P2P (no ID)</div>
+    <div class="fact"><span class="key">LocalCoinSwap</span> localcoinswap.com — decentralized escrow</div>
+    <div class="fact"><span class="key">NoOnes</span> noones.com — P2P with Telegram integration</div>
+  </div>
 </div>
 
 </div>

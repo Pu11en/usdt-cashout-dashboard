@@ -234,7 +234,7 @@ Source: Ledn Capital
         "Platform": ["Ledn", "Unchained Capital", "Lava Finance", "CoinRabbit"],
         "Collateral": ["BTC / ETH", "BTC / ETH", "BTC", "Multi-asset"],
         "LTV": ["50%", "50%", "50%", "50%"],
-        "APR": ["9.99-11.49%", "12-15%", "~5%", "8-16%"],
+        "APR": ["9.99-11.49%", "9.5-16%", "5-7.5%", "8-16%"],
         "Output": ["USD wire", "USD wire", "USD wire", "USD wire"],
         "ID Needed": ["Yes", "Yes", "Some", "Yes"],
     }))
@@ -386,7 +386,7 @@ USDT is gone. Cash in your pocket.
     st.subheader("Gift Cards (Fastest Turnaround)")
 
     st.markdown("""
-**CoinGate.com:** Email only. No ID. Buy gift cards with USDT instantly.
+**CoinGate.com:** Email only for small purchases. No government ID under certain limits. For larger transactions KYC may be required.
 
 ```
 USDT → CoinGate (buy $1,000 Steam card)
@@ -547,7 +547,7 @@ def page_cards():
     st.subheader("All Cards Compared")
 
     render(pd.DataFrame({
-        "Card": ["Gnosis Pay", "SolCard (Virtual)", "Bleap Mastercard", "RedotPay", "COCA Card", "Binance Card"],
+        "Card": ["Gnosis Pay", "SolCard (KYC now)", "Bleap Mastercard", "RedotPay", "COCA Card", "Binance Card"],
         "Custody": ["YOU (self-custody)", "SolCard platform", "Bleap (custodial)", "RedotPay (custodial)", "COCA (custodial)", "Binance (custodial)"],
         "Network": ["Visa", "Visa", "Mastercard", "Visa", "Mastercard", "Visa"],
         "Cashback": ["Up to 5% (GNO tokens)", "None", "2% (USDC)", "3%", "Up to 5%", "Up to 5%"],
@@ -556,9 +556,9 @@ def page_cards():
         "Top-Up Fee": ["None", "5% (virtual tier)", "None", "None", "None", "None"],
         "ATM Limit": ["Tiered by plan", "No ATM", "$400/mo free", "$100K/day", "Tiered", "Tiered"],
         "Spending Limit": ["$1M+/day (Metal)", "$5K/month", "High", "$1M/day", "High", "Medium"],
-        "KYC": ["No (your Safe)", "No (virtual tier)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
+        "KYC": ["No (your Safe)", "Yes (removed no-KYC Apr 2026)", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie", "Gov ID + selfie"],
         "Countries": ["EU + LatAm (no US)", "Global", "Global", "Global", "Global", "Limited"],
-        "Best For": ["Privacy first", "No ID, no bank", "Best overall fees", "High limits", "Multi-chain", "Binance users"],
+        "Best For": ["Privacy first", "Crypto funded card", "Best overall fees", "High limits", "Multi-chain", "Binance users"],
     }))
 
     st.markdown("---")
@@ -596,39 +596,22 @@ Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, F
     }))
 
     st.markdown("---")
-    st.subheader("SolCard — No KYC, No Bank, No ID")
+    st.subheader("SolCard — No-KYC REMOVED (April 2026)")
+
+    st.error("""
+**SolCard removed its no-KYC feature in April 2026.** The anonymous virtual card that previously required no identity verification is gone. All tiers now require some form of KYC.
+
+KYC is now required for all new cards. Existing no-KYC cards continue to work temporarily but will eventually require verification.
+
+**This was the last no-KYC crypto debit card. As of May 2026, no crypto debit card exists without government ID.**
+""")
 
     st.markdown("""
-**What it is:** Visa virtual card funded from your self-custody wallet. No ID verification on the virtual tier. No bank account needed. Use any name and address.
-
-**The numbers:**
-- KYC: None on virtual card
-- Top-up fee: 5% on virtual card, 0% on Platinum
-- Spending limit: $5,000/month (virtual), $100K/month (Platinum)
-- Apple Pay / Google Pay: Yes (all tiers)
-- ATM: No
-- Physical card: Only on Platinum tier (requires KYC)
-- Fund with: SOL, USDT, USDC from self-custody wallet
+**What SolCard still offers (with KYC):**
+- Visa debit card funded from self-custody wallet
+- Physical and virtual cards available
+- Apple Pay / Google Pay support
 - Website: solcard.cc
-
-**How it works:**
-```
-Your self-custody wallet (Trust Wallet, Phantom)
-        |
-Fund SolCard with SOL/USDT/USDC
-        |
-Virtual card issued instantly — use any name/address
-        |
-Add to Apple Pay / Google Pay
-        |
-Spend anywhere Visa is accepted
-```
-
-**What Reddit users say:** "No ID verification needed. You can pick a random name and address. Just make sure the zip code matches the city."
-
-**The catch:** Solana-based. 5% fee on virtual tier. $5K/month limit. No ATM. Some merchants blocked.
-
-**Why it matters:** This is the closest thing to a truly no-ID crypto card in 2026.
 """)
 
     st.markdown("---")
