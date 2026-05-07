@@ -59,7 +59,7 @@ def page_home():
             "Email only",
             "No (<$3K)",
             "Yes (loan company)",
-            "None",
+            "Residency (EU/LatAm)",
             "None",
         ],
         "Best For": [
@@ -197,7 +197,7 @@ YOUR USDT NEVER MOVES.
 **This is a real business. People pay premium for fast, private crypto trades.**
 """)
 
-    st.warning("Paxful was shut down Dec 2025. $7.5M fine. No MTL licenses. No AML program. Get licensed before doing serious volume.")
+    st.warning("Paxful shut down Nov 2025. $3.5-4M fine. No MTL licenses. No AML program. Get licensed before doing serious volume.")
 
 # ─── PAGE 3: LOANS ─────────────────────────────────────────────────────────────
 def page_loans():
@@ -510,8 +510,8 @@ YOU NEVER SOLD ANYTHING.
     st.subheader("What You Can Do")
 
     render(pd.DataFrame({
-        "What": ["Online shopping (Amazon, anything)", "In-store NFC tap to pay", "ATM withdrawals", "Bank transfer to another account", "Pay contractors directly", "No 1099 from card," "Card: EU/LatAm. Wallet: global."],
-        "How": ["Visa accepted anywhere", "Apple Pay / Google Pay", "Compatible ATMs worldwide", "Send from your wallet", "Send USDT to their wallet", "It's your wallet, not theirs", "True self-custody"],
+        "What": ["Online shopping (Amazon, anything)", "In-store NFC tap to pay", "ATM withdrawals", "Bank transfer to another account", "Pay contractors directly", "No 1099 from card", "Card requires EU/LatAm residency"],
+        "How": ["Visa accepted anywhere", "Apple Pay / Google Pay", "Compatible ATMs worldwide", "Send from your wallet", "Send USDT to their wallet", "It's your wallet, not theirs", "True self-custody, but card has residency check"],
     }))
 
     st.markdown("---")
@@ -690,9 +690,9 @@ KYC is now required for all new cards. Existing no-KYC cards continue to work te
         "Card": ["Gnosis Pay", "Bleap", "RedotPay", "COCA"],
         "Who Holds Your USDT": ["YOU", "Bleap company", "RedotPay company", "COCA"],
         "Can They Freeze It": ["No — impossible", "Yes", "Yes", "Yes"],
-        "Do They Have Your ID": ["No", "Yes", "Yes", "Yes"],
-        "IRS Knows About You": ["No", "Yes (1099)", "Yes", "Yes"],
-        "Privacy Score": ["10/10", "4/10", "4/10", "4/10"],
+        "Do They Have Your ID": ["Residency check (EU/LatAm)", "Yes (gov ID)", "Yes (gov ID)", "Yes (gov ID)"],
+        "IRS Knows About You": ["No 1099 from card", "Yes (1099)", "Yes", "Yes"],
+        "Privacy Score": ["9/10", "4/10", "4/10", "4/10"],
     }))
 
     st.markdown("---")
@@ -1098,7 +1098,7 @@ def page_shortcuts():
 
         render(pd.DataFrame({
             "How": ["Local meet", "Gift cards", "Gnosis Pay ATM"],
-            "What to Do": ["Telegram + local meet. Cash in hand.", "CoinGate: buy Steam cards. Sell for 85 cents on dollar.", "Gnosis Safe: ATM withdrawal worldwide."],
+            "What to Do": ["Telegram + local meet. Cash in hand.", "CoinGate: buy Steam cards. Sell for 85 cents on dollar.", "Gnosis Safe: ATM withdrawal (EU/LatAm)."],
             "Amount": ["Any size", "Up to $50K/day", "Per ATM limit"],
             "ID Needed": ["None", "Email only", "None"],
             "Risk": ["Trust-based", "Low", "None"],
